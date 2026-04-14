@@ -186,59 +186,88 @@ fun ScenarioScreen(
 
             val scenario = uiState.currentScenario
             if (scenario != null) {
-                // Scenario info bar
+                // Position display - prominent
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(DarkSurface)
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(
+                            Brush.horizontalGradient(
+                                colors = listOf(
+                                    getPositionColor(scenario.position).copy(alpha = 0.25f),
+                                    DarkSurface
+                                )
+                            )
+                        )
+                        .border(
+                            width = 1.dp,
+                            color = getPositionColor(scenario.position).copy(alpha = 0.5f),
+                            shape = RoundedCornerShape(14.dp)
+                        )
                         .padding(12.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    PositionBadge(position = scenario.position)
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    // Large position badge
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(getPositionColor(scenario.position))
                     ) {
-                        PokerChip(value = scenario.potSize)
-                        Column {
-                            Text(
-                                text = "Pot",
-                                color = TextMuted,
-                                fontSize = 10.sp
-                            )
+                        Text(
+                            text = scenario.position.uppercase(),
+                            color = if (scenario.position.uppercase() == "BTN")
+                                Color(0xFF1B2838) else Color.White,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(12.dp))
+
+                    // Position name + label
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Your Position",
+                            color = TextMuted,
+                            fontSize = 11.sp
+                        )
+                        Text(
+                            text = getPositionFullName(scenario.position),
+                            color = TextPrimary,
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+
+                    // Pot + Stack + Progress
+                    Column(horizontalAlignment = Alignment.End) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(text = "Pot ", color = TextMuted, fontSize = 11.sp)
                             Text(
                                 text = scenario.potSize,
+                                color = GoldAccent,
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(text = "Stack ", color = TextMuted, fontSize = 11.sp)
+                            Text(
+                                text = scenario.stackSize,
                                 color = TextPrimary,
-                                fontSize = 13.sp,
+                                fontSize = 14.sp,
                                 fontWeight = FontWeight.SemiBold
                             )
                         }
-                    }
-
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            text = "Stack",
+                            text = "${uiState.currentIndex + 1}/${uiState.totalScenarios}",
                             color = TextMuted,
-                            fontSize = 10.sp
-                        )
-                        Text(
-                            text = scenario.stackSize,
-                            color = TextPrimary,
-                            fontSize = 13.sp,
-                            fontWeight = FontWeight.SemiBold
+                            fontSize = 11.sp
                         )
                     }
-
-                    // Progress indicator
-                    Text(
-                        text = "${uiState.currentIndex + 1}/${uiState.totalScenarios}",
-                        color = TextMuted,
-                        fontSize = 12.sp
-                    )
                 }
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -607,4 +636,32 @@ private fun parseHand(hand: String): List<String> {
         }
     }
     return cards
+}
+
+private fun getPositionColor(position: String): Color {
+    return when (position.uppercase()) {
+        "BTN" -> Color(0xFFFFD700)
+        "CO" -> Color(0xFF43A047)
+        "SB" -> Color(0xFF1E88E5)
+        "BB" -> Color(0xFF1E88E5)
+        "MP", "HJ", "LJ" -> Color(0xFF7E57C2)
+        "UTG", "UTG+1", "UTG+2" -> Color(0xFFEF5350)
+        else -> Color(0xFF78909C)
+    }
+}
+
+private fun getPositionFullName(position: String): String {
+    return when (position.uppercase()) {
+        "BTN" -> "Button"
+        "CO" -> "Cutoff"
+        "SB" -> "Small Blind"
+        "BB" -> "Big Blind"
+        "MP" -> "Middle Position"
+        "HJ" -> "Hijack"
+        "LJ" -> "Lojack"
+        "UTG" -> "Under the Gun"
+        "UTG+1" -> "Under the Gun +1"
+        "UTG+2" -> "Under the Gun +2"
+        else -> position
+    }
 }
