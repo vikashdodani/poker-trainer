@@ -50,19 +50,39 @@ import com.vikash.pokertrainer.ui.theme.TextSecondary
 
 /**
  * Renders a single playing card with proper suit coloring.
- * Cards are parsed from strings like "A\u2660", "K\u2665", "10\u2666", "Q\u2663".
+ * Supports both unicode ("A♠") and letter-based ("As", "Qd") card formats.
  */
 @Composable
 fun PlayingCard(
     card: String,
     modifier: Modifier = Modifier
 ) {
-    val suit = card.lastOrNull()?.toString() ?: ""
-    val rank = card.dropLast(1)
+    val unicodeSuits = setOf('♠', '♥', '♦', '♣')
+    val suitLetterMap = mapOf(
+        's' to "♠", 'S' to "♠",
+        'h' to "♥", 'H' to "♥",
+        'd' to "♦", 'D' to "♦",
+        'c' to "♣", 'C' to "♣"
+    )
+
+    val lastChar = card.lastOrNull()
+    val suit: String
+    val rank: String
+
+    if (lastChar != null && lastChar in unicodeSuits) {
+        suit = lastChar.toString()
+        rank = card.dropLast(1)
+    } else if (lastChar != null && lastChar in suitLetterMap) {
+        suit = suitLetterMap[lastChar] ?: ""
+        rank = card.dropLast(1)
+    } else {
+        suit = ""
+        rank = card
+    }
 
     val suitColor = when (suit) {
-        "\u2665", "\u2666" -> CardRed   // Hearts, Diamonds
-        else -> CardBlack               // Spades, Clubs
+        "♥", "♦" -> CardRed
+        else -> CardBlack
     }
 
     Box(
@@ -126,7 +146,7 @@ fun PlayingCard(
 }
 
 /**
- * Displays a horizontal row of playing cards with a slight overlap effect.
+ * Displays a horizontal row of playing cards with spacing between them.
  */
 @Composable
 fun CardRow(
@@ -135,15 +155,11 @@ fun CardRow(
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        cards.forEachIndexed { index, card ->
-            PlayingCard(
-                card = card,
-                modifier = Modifier
-                    .offset(x = (-12 * index).dp)
-            )
+        cards.forEach { card ->
+            PlayingCard(card = card)
         }
     }
 }
