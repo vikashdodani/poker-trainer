@@ -26,7 +26,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.GridOn
 import androidx.compose.material.icons.filled.People
-import androidx.compose.material.icons.filled.ShowChart
+import androidx.compose.material.icons.automirrored.filled.ShowChart
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -142,7 +142,7 @@ fun HomeScreen(
             FeatureTileData(
                 title = "Statistics",
                 description = "Track your progress and find leaks",
-                icon = Icons.Filled.ShowChart,
+                icon = Icons.AutoMirrored.Filled.ShowChart,
                 accentColor = FeaturePurple,
                 onClick = onNavigateToStats
             )
@@ -240,7 +240,7 @@ private fun FeatureTile(data: FeatureTileData) {
 
             // Arrow indicator
             Icon(
-                imageVector = Icons.Filled.ArrowForward,
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = "Navigate",
                 tint = TextMuted,
                 modifier = Modifier.size(20.dp)
