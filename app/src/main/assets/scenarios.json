@@ -702,5 +702,2175 @@
     "correct": "All-In (50BB)",
     "explanation": "You have a complete airball with six high and a busted flush draw. However, this is one of the best river bluff spots because: (1) the board is KQ8-4-T and you have barreled two streets representing a strong range, (2) the T river completes AJ for a straight, which you can credibly represent, (3) by shoving all-in for a pot-sized bet, villain needs to call off their stack with one pair which is psychologically very difficult, (4) villain's double-call range is mostly Kx and Qx that will face enormous pressure from an all-in, (5) your hand has zero showdown value so checking guarantees a loss, and (6) the overbet sizing makes this a very profitable bluff if villain folds more than 50% of the time.",
     "category": "Missed Draws"
+  },
+  {
+    "id": "preflop_11",
+    "hand": "A♠A♥",
+    "position": "UTG",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "1.5BB",
+    "stackSize": "100BB",
+    "villainAction": "No action yet",
+    "options": [
+      "Raise 2.5BB",
+      "Raise 3BB",
+      "Limp"
+    ],
+    "correct": "Raise 2.5BB",
+    "explanation": "With pocket Aces in early position, you should always open raise. A standard 2.5BB open is preferred in modern poker to keep your range balanced and to avoid bloating the pot in a way that narrows your perceived range. Limping Aces is a common beginner mistake that allows multiple opponents to see a cheap flop, reducing your equity significantly.",
+    "category": "Premium Hands"
+  },
+  {
+    "id": "preflop_12",
+    "hand": "7♠6♠",
+    "position": "CO",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "1.5BB",
+    "stackSize": "100BB",
+    "villainAction": "Folds to you",
+    "options": [
+      "Fold",
+      "Raise 2.5BB",
+      "Limp"
+    ],
+    "correct": "Raise 2.5BB",
+    "explanation": "Suited connectors like 76s play very well from the cutoff position. You have only two players left to act (BTN and blinds), giving you good fold equity. When called, your hand has excellent playability postflop with straight and flush draw potential. Always raise rather than limp to maintain the initiative.",
+    "category": "Suited Connectors"
+  },
+  {
+    "id": "preflop_13",
+    "hand": "5♦5♣",
+    "position": "MP",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "4BB",
+    "stackSize": "100BB",
+    "villainAction": "UTG opens 2.5BB",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (7BB)"
+    ],
+    "correct": "Call",
+    "explanation": "Small pocket pairs like 55 are classic set-mining hands. You are getting excellent implied odds with 100BB effective stacks, as you will win a large pot roughly 1 in 8 times when you flop a set. 3-betting is too aggressive with this hand against an UTG range, and folding is too tight given the implied odds. Calling and playing for set value is the optimal line.",
+    "category": "Pocket Pairs"
+  },
+  {
+    "id": "preflop_14",
+    "hand": "Q♥9♥",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5.5BB",
+    "stackSize": "100BB",
+    "villainAction": "BTN opens 2.5BB, SB folds",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (8BB)"
+    ],
+    "correct": "Call",
+    "explanation": "In the big blind facing a button open, Q9 suited is a profitable defend. The button opens a very wide range, and you are getting 3.5:1 on a call after posting your blind. Your hand has decent suited high-card equity and can make strong flushes and straights. 3-betting is viable occasionally as a bluff, but calling is the standard and most profitable play.",
+    "category": "Blind Defense"
+  },
+  {
+    "id": "preflop_15",
+    "hand": "A♣K♦",
+    "position": "SB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5BB",
+    "stackSize": "100BB",
+    "villainAction": "CO opens 2.5BB, BTN calls",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (10BB)",
+      "3-Bet (14BB)"
+    ],
+    "correct": "3-Bet (14BB)",
+    "explanation": "AKo in the small blind facing an open and a cold call is a textbook squeeze spot. You should size up your 3-bet to around 14BB because there are two opponents who have shown interest in the pot. A larger sizing punishes the cold caller who often has a capped, medium-strength range. AK has too much equity to just flat call out of position in a multiway pot.",
+    "category": "Squeeze Plays"
+  },
+  {
+    "id": "preflop_16",
+    "hand": "K♠K♥",
+    "position": "HJ",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "8.5BB",
+    "stackSize": "100BB",
+    "villainAction": "You opened 2.5BB, BTN 3-bets to 8BB",
+    "options": [
+      "Fold",
+      "Call",
+      "4-Bet (20BB)",
+      "4-Bet All-in"
+    ],
+    "correct": "4-Bet (20BB)",
+    "explanation": "Kings are the second-best starting hand and should almost always be 4-bet for value when facing a 3-bet. A sizing of around 20BB keeps your 4-bet range balanced and gives your opponent room to make mistakes by calling or 5-bet shoving with worse hands. Going all-in preflop is too aggressive at 100BB deep and folds out most of villain's bluffs.",
+    "category": "4-Bet Spots"
+  },
+  {
+    "id": "preflop_17",
+    "hand": "J♠T♠",
+    "position": "BTN",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "4BB",
+    "stackSize": "100BB",
+    "villainAction": "MP opens 2.5BB",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (7.5BB)"
+    ],
+    "correct": "Call",
+    "explanation": "JTs is one of the best suited connectors and plays beautifully on the button. While 3-betting is a viable option, flatting in position allows you to realize your excellent equity postflop. You can flop straights, flushes, two pairs, and strong draws. Being in position means you control the pot size and can extract value or bluff efficiently on later streets.",
+    "category": "Suited Connectors"
+  },
+  {
+    "id": "preflop_18",
+    "hand": "A♥4♥",
+    "position": "CO",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "4BB",
+    "stackSize": "100BB",
+    "villainAction": "HJ opens 2.5BB",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (7.5BB)"
+    ],
+    "correct": "3-Bet (7.5BB)",
+    "explanation": "A4 suited is an excellent 3-bet bluff candidate from the cutoff. It has a blocker to strong Ace-x hands (reducing the chance villain has AA, AK, AQ), and when called, it retains equity through its flush draw and backdoor straight potential. This hand performs better as a 3-bet than a flat call because it is difficult to play profitably out of position postflop with a weak kicker.",
+    "category": "3-Bet Spots"
+  },
+  {
+    "id": "preflop_19",
+    "hand": "8♣8♦",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "6.5BB",
+    "stackSize": "25BB",
+    "villainAction": "CO opens 2.5BB, BTN calls",
+    "options": [
+      "Fold",
+      "Call",
+      "All-in (25BB)"
+    ],
+    "correct": "All-in (25BB)",
+    "explanation": "With a short stack of 25BB, pocket eights are a strong squeeze-shove candidate from the big blind. You have significant fold equity against the opener and the cold caller, and when called, 88 has solid equity against most calling ranges. Flatting out of position multiway with a short stack is problematic because you cannot effectively set mine with only 25BB.",
+    "category": "Short Stack"
+  },
+  {
+    "id": "preflop_20",
+    "hand": "K♦Q♠",
+    "position": "BTN",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "6BB",
+    "stackSize": "100BB",
+    "villainAction": "UTG opens 2.5BB, MP calls",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (9BB)"
+    ],
+    "correct": "Call",
+    "explanation": "KQo on the button facing an UTG open and a cold call is a spot where flatting is preferred. While KQ is a strong hand, 3-betting runs into the UTG player's strong range and risks getting 4-bet off your equity. By calling in position, you keep the pot smaller and play postflop with a positional advantage. Your hand has good equity realization in position against both opponents.",
+    "category": "Multiway Pots"
+  },
+  {
+    "id": "preflop_21",
+    "hand": "Q♠Q♦",
+    "position": "MP",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "1.5BB",
+    "stackSize": "100BB",
+    "villainAction": "Folds to you",
+    "options": [
+      "Raise 2.5BB",
+      "Raise 3BB",
+      "Limp"
+    ],
+    "correct": "Raise 2.5BB",
+    "explanation": "Queens are the third-best starting hand and should always be opened with a raise. A standard 2.5BB raise is the modern standard from middle position, keeping your opening size consistent with the rest of your range. This prevents observant opponents from exploiting different sizings. You want action from worse hands while not overcommitting preflop.",
+    "category": "Premium Hands"
+  },
+  {
+    "id": "preflop_22",
+    "hand": "9♥8♥",
+    "position": "HJ",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "1.5BB",
+    "stackSize": "100BB",
+    "villainAction": "Folds to you",
+    "options": [
+      "Fold",
+      "Raise 2.5BB",
+      "Limp"
+    ],
+    "correct": "Raise 2.5BB",
+    "explanation": "98 suited is a strong enough hand to open from the hijack position. It has excellent playability postflop with straight and flush potential, making it a profitable open in a position where only four players remain. Limping is never correct with this hand as it forfeits the initiative and invites the blinds to see a cheap flop. Opening maintains fold equity and board coverage.",
+    "category": "Suited Connectors"
+  },
+  {
+    "id": "preflop_23",
+    "hand": "T♣T♠",
+    "position": "UTG",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "9.5BB",
+    "stackSize": "100BB",
+    "villainAction": "You opened 2.5BB, CO 3-bets to 8BB",
+    "options": [
+      "Fold",
+      "Call",
+      "4-Bet (20BB)"
+    ],
+    "correct": "Call",
+    "explanation": "Tens are a strong hand but face a difficult spot when 3-bet. Against a cutoff 3-bet range, TT has good equity but does not benefit much from 4-betting because it folds out worse hands and gets called only by better ones. Calling keeps villain's bluffs in their range and allows you to play postflop. Your hand is strong enough to continue but not strong enough to build a large pot preflop.",
+    "category": "4-Bet Spots"
+  },
+  {
+    "id": "preflop_24",
+    "hand": "K♥J♥",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5BB",
+    "stackSize": "100BB",
+    "villainAction": "CO opens 2.5BB, SB folds",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (8BB)"
+    ],
+    "correct": "Call",
+    "explanation": "KJs is a strong defending hand from the big blind against a cutoff open. You are closing the action and getting a good price. While 3-betting is sometimes viable, this hand plays well postflop with its flush draw potential and high-card strength. The cutoff opens a fairly wide range, so your hand has plenty of equity to call profitably and play postflop.",
+    "category": "Blind Defense"
+  },
+  {
+    "id": "preflop_25",
+    "hand": "A♠K♠",
+    "position": "CO",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "9.5BB",
+    "stackSize": "100BB",
+    "villainAction": "You opened 2.5BB, BTN 3-bets to 8BB",
+    "options": [
+      "Fold",
+      "Call",
+      "4-Bet (20BB)",
+      "4-Bet All-in"
+    ],
+    "correct": "4-Bet (20BB)",
+    "explanation": "AKs is one of the best 4-betting hands in poker. It has excellent equity against 3-bet calling ranges and blocks many premium hands like AA and KK. A 4-bet to around 20BB is the ideal sizing, giving you room to fold if villain 5-bet jams while building the pot when villain calls with worse. The suited component adds extra equity through flush potential when seeing a flop.",
+    "category": "Premium Hands"
+  },
+  {
+    "id": "preflop_26",
+    "hand": "6♥5♦",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5BB",
+    "stackSize": "100BB",
+    "villainAction": "SB completes",
+    "options": [
+      "Check",
+      "Raise 3BB"
+    ],
+    "correct": "Raise 3BB",
+    "explanation": "When the small blind limps into the big blind, you should raise a wide range of hands to punish the passive play and take the initiative. 65o has enough equity and playability to raise as a semi-bluff. By raising, you either win the pot immediately or build a pot where you have the initiative and can continuation bet on favorable boards. Checking allows SB to realize their equity for free.",
+    "category": "Limped Pots"
+  },
+  {
+    "id": "preflop_27",
+    "hand": "A♦J♣",
+    "position": "BTN",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "7BB",
+    "stackSize": "100BB",
+    "villainAction": "UTG opens 2.5BB, HJ calls, CO calls",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (12BB)"
+    ],
+    "correct": "Call",
+    "explanation": "AJo on the button in a multiway pot is best played as a flat call. While your hand is strong, 3-betting into an UTG opener with two cold callers is risky because the UTG range is strong and the cold callers have shown interest. By flatting, you maintain your positional advantage and keep the pot manageable. Your hand has good high-card equity but struggles when 3-bet and called by a strong range.",
+    "category": "Multiway Pots"
+  },
+  {
+    "id": "preflop_28",
+    "hand": "2♠2♥",
+    "position": "BTN",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "4BB",
+    "stackSize": "100BB",
+    "villainAction": "MP opens 2.5BB",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (7.5BB)"
+    ],
+    "correct": "Call",
+    "explanation": "Pocket deuces on the button is a clear call for set mining purposes. With 100BB effective stacks, you have the implied odds to profit when you flop a set approximately 12% of the time. Your positional advantage makes it easier to control the pot when you miss and to extract value when you hit. 3-betting is suboptimal because 22 has poor equity when called and no blocker value.",
+    "category": "Pocket Pairs"
+  },
+  {
+    "id": "preflop_29",
+    "hand": "A♣5♣",
+    "position": "SB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "4BB",
+    "stackSize": "100BB",
+    "villainAction": "CO opens 2.5BB, BTN folds",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (9BB)"
+    ],
+    "correct": "3-Bet (9BB)",
+    "explanation": "A5s from the small blind facing a cutoff open is a premium 3-bet bluffing hand. It blocks strong aces in villain's range, has nut flush potential, and can make the wheel straight. Flatting from the small blind is the worst option because you will be out of position for the rest of the hand with no initiative. By 3-betting, you put pressure on villain and set up profitable continuation bet scenarios.",
+    "category": "3-Bet Spots"
+  },
+  {
+    "id": "preflop_30",
+    "hand": "J♦T♦",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "7BB",
+    "stackSize": "30BB",
+    "villainAction": "HJ opens 2.5BB, CO calls",
+    "options": [
+      "Fold",
+      "Call",
+      "All-in (30BB)"
+    ],
+    "correct": "All-in (30BB)",
+    "explanation": "With 30BB effective and JTs in the big blind, this is a strong squeeze-shove opportunity. JTs has excellent equity against the calling ranges of both opponents, and at this stack depth, 3-betting to a non-all-in amount commits too much of your stack without maximizing fold equity. The cold caller's range is typically weak, making them likely to fold. When called, your suited connector has strong equity realization.",
+    "category": "Short Stack"
+  },
+  {
+    "id": "preflop_31",
+    "hand": "K♣Q♣",
+    "position": "HJ",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5.5BB",
+    "stackSize": "100BB",
+    "villainAction": "UTG opens 2.5BB, MP calls",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (9BB)"
+    ],
+    "correct": "Call",
+    "explanation": "KQs in the hijack facing an UTG open and a cold call is a good flatting hand. Your hand is too strong to fold given its suited nature and high-card value, but 3-betting into a UTG range with a caller behind is dangerous. Calling lets you see a flop in relative position with a hand that flops well. You can reassess postflop based on board texture and action.",
+    "category": "Multiway Pots"
+  },
+  {
+    "id": "preflop_32",
+    "hand": "9♠9♦",
+    "position": "CO",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "1.5BB",
+    "stackSize": "20BB",
+    "villainAction": "Folds to you",
+    "options": [
+      "Fold",
+      "Raise 2.5BB",
+      "All-in (20BB)"
+    ],
+    "correct": "All-in (20BB)",
+    "explanation": "With only 20BB effective, pocket nines are a strong shoving hand from the cutoff. A standard raise would commit over 12% of your stack, leaving you in an awkward spot if 3-bet. Shoving maximizes your fold equity while your hand has strong equity when called. At short stack depths, simplifying your strategy by jamming with pairs this strong is both theoretically correct and practically easier to execute.",
+    "category": "Short Stack"
+  },
+  {
+    "id": "preflop_33",
+    "hand": "A♥Q♥",
+    "position": "MP",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "9.5BB",
+    "stackSize": "100BB",
+    "villainAction": "You opened 2.5BB, CO 3-bets to 8BB",
+    "options": [
+      "Fold",
+      "Call",
+      "4-Bet (20BB)"
+    ],
+    "correct": "Call",
+    "explanation": "AQs is at the bottom of the 4-bet value range and plays better as a call against a CO 3-bet. By calling, you keep in villain's bluffs and can play a manageable pot postflop with a hand that has strong equity. 4-betting turns your hand into a semi-bluff that faces a tough decision against a 5-bet. The suited component adds enough playability to make calling the preferred line.",
+    "category": "4-Bet Spots"
+  },
+  {
+    "id": "preflop_34",
+    "hand": "8♥7♣",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "7BB",
+    "stackSize": "100BB",
+    "villainAction": "MP opens 2.5BB, CO calls, BTN calls",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (12BB)"
+    ],
+    "correct": "Call",
+    "explanation": "87o in the big blind facing a raise and two calls is a profitable defend. You are getting an excellent price of roughly 6:1 on your call with a hand that can make strong straights. In multiway pots, hands with straight potential increase in value because you need a stronger hand to win, but when you connect, you win a larger pot. Squeezing with an offsuit connector against three opponents is too risky.",
+    "category": "Blind Defense"
+  },
+  {
+    "id": "preflop_35",
+    "hand": "Q♦J♦",
+    "position": "CO",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5BB",
+    "stackSize": "100BB",
+    "villainAction": "HJ opens 2.5BB, you are in the CO",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (7.5BB)"
+    ],
+    "correct": "3-Bet (7.5BB)",
+    "explanation": "QJs from the cutoff is a strong 3-bet candidate against a hijack open. Your hand has excellent board coverage, making straights, flushes, and two pairs with high frequency. 3-betting applies pressure to the HJ opener and builds a pot where your suited broadway cards perform well. If called, you have position and a hand with many profitable postflop opportunities.",
+    "category": "3-Bet Spots"
+  },
+  {
+    "id": "preflop_36",
+    "hand": "7♦7♣",
+    "position": "SB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "4BB",
+    "stackSize": "100BB",
+    "villainAction": "BTN opens 2.5BB",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (9BB)"
+    ],
+    "correct": "3-Bet (9BB)",
+    "explanation": "Pocket sevens from the small blind against a button open should be 3-bet. The button opens a very wide range, and 77 has strong equity against that range. Calling from the small blind is problematic because you will be out of position for the entire hand with no initiative. By 3-betting, you either take down the pot preflop or play a larger pot where your pair may be ahead of villain's range.",
+    "category": "Pocket Pairs"
+  },
+  {
+    "id": "preflop_37",
+    "hand": "K♠9♠",
+    "position": "BTN",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "3.5BB",
+    "stackSize": "100BB",
+    "villainAction": "UTG limps, MP limps",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise 4BB"
+    ],
+    "correct": "Raise 4BB",
+    "explanation": "Facing two limpers on the button, K9s is a clear raise for isolation. Your hand benefits greatly from thinning the field and playing heads-up or three-way in position. Limpers typically have weak, passive ranges that fold to aggression frequently. By raising to 4BB (a standard isolation sizing over two limpers), you take the initiative and can often win the pot with a continuation bet on the flop.",
+    "category": "Limped Pots"
+  },
+  {
+    "id": "preflop_38",
+    "hand": "A♦A♣",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "12BB",
+    "stackSize": "100BB",
+    "villainAction": "UTG opens 2.5BB, CO 3-bets to 8BB, BTN calls 8BB, SB folds",
+    "options": [
+      "Call",
+      "4-Bet (24BB)",
+      "All-in"
+    ],
+    "correct": "4-Bet (24BB)",
+    "explanation": "Pocket Aces in the big blind with a 3-bet and a cold call in front of you is a dream scenario. You should 4-bet to around 24BB to build the pot while giving opponents a chance to make a mistake by calling or 5-betting with worse hands. Going all-in is too aggressive and may fold out hands that would otherwise put more money in. The cold caller's presence adds significant dead money that makes this spot extremely profitable.",
+    "category": "Premium Hands"
+  },
+  {
+    "id": "preflop_39",
+    "hand": "T♥9♥",
+    "position": "SB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "6.5BB",
+    "stackSize": "100BB",
+    "villainAction": "MP opens 2.5BB, HJ calls, CO calls",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (12BB)"
+    ],
+    "correct": "Fold",
+    "explanation": "T9s in the small blind facing an open and two cold calls is a marginal spot where folding is best. While your hand has playability, being out of position against three opponents significantly reduces your equity realization. The squeeze would need to be very large to have fold equity against three players, and calling guarantees you play a multiway pot out of position. Discipline in the small blind is key to long-term profitability.",
+    "category": "Squeeze Plays"
+  },
+  {
+    "id": "preflop_40",
+    "hand": "J♣9♣",
+    "position": "BB",
+    "board": [],
+    "street": "PREFLOP",
+    "potSize": "5BB",
+    "stackSize": "100BB",
+    "villainAction": "BTN opens 2.5BB, SB folds",
+    "options": [
+      "Fold",
+      "Call",
+      "3-Bet (8BB)"
+    ],
+    "correct": "Call",
+    "explanation": "J9s in the big blind facing a button open is a comfortable defend. The button opens a wide range, and your suited connector has excellent playability postflop with straight and flush draw potential. You are getting a good price after posting your big blind, and your hand connects well with many board textures. 3-betting is viable at a low frequency but calling is the standard and highest EV play in this spot.",
+    "category": "Blind Defense"
+  },
+  {
+    "id": "flop_9",
+    "hand": "A♠K♥",
+    "position": "CO",
+    "board": [
+      "Q♠",
+      "7♦",
+      "2♣"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)",
+      "Bet 6BB (100%)"
+    ],
+    "correct": "Bet 2BB (33%)",
+    "explanation": "On this dry Q-high board, you have two overcards with a backdoor straight draw. As the preflop raiser in position, you should continuation bet at a small sizing. The dry texture favors the preflop raiser's range, and a 33% pot cbet applies pressure on the BB's many weak hands while keeping your bluffing range efficient.",
+    "category": "C-Bet Decisions"
+  },
+  {
+    "id": "flop_10",
+    "hand": "9♠8♠",
+    "position": "BB",
+    "board": [
+      "7♠",
+      "6♣",
+      "2♠"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "94BB",
+    "villainAction": "BTN bets 2BB (33%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 7BB"
+    ],
+    "correct": "Raise to 7BB",
+    "explanation": "You have an open-ended straight draw combined with a flush draw, giving you 15 outs to a likely winning hand. This is a premium combo draw that plays excellently as a check-raise on a wet board. By raising, you put maximum pressure on the BTN's continuation bets with weak holdings while building a pot for when you hit your draw.",
+    "category": "Check-Raise Spots"
+  },
+  {
+    "id": "flop_11",
+    "hand": "J♥T♥",
+    "position": "HJ",
+    "board": [
+      "9♥",
+      "4♥",
+      "2♦"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "CO bets 5BB (71%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 14BB"
+    ],
+    "correct": "Call",
+    "explanation": "You hold an overcard, a gutshot straight draw, and a flush draw, totaling roughly 12 outs. While this is a strong drawing hand, calling is preferred over raising in position because you can realize your equity cheaply on later streets. Raising would bloat the pot and potentially face a 3-bet that forces you off a profitable drawing hand.",
+    "category": "Drawing Hands"
+  },
+  {
+    "id": "flop_12",
+    "hand": "5♣5♦",
+    "position": "MP",
+    "board": [
+      "K♠",
+      "5♠",
+      "9♦"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "95BB",
+    "villainAction": "CO bets 4BB (66%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 12BB"
+    ],
+    "correct": "Call",
+    "explanation": "You flopped bottom set on a board with a flush draw. While raising might seem tempting, calling is the stronger play here. Slow-playing disguises your hand strength and keeps your opponent's bluffing range intact. The flush draw on board actually helps you because if a spade comes you can still represent a wide range, and your opponent may fire again on the turn with top pair or draws.",
+    "category": "Set Mining Hits"
+  },
+  {
+    "id": "flop_13",
+    "hand": "A♦K♣",
+    "position": "UTG",
+    "board": [
+      "8♥",
+      "6♠",
+      "3♦"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)"
+    ],
+    "correct": "Check",
+    "explanation": "AK on a low, disconnected board is a classic missed flop situation. While you have two overcards, this 8-6-3 board connects much better with the BB's calling range which includes hands like 87s, 65s, and pocket pairs. Checking back preserves your equity to hit an ace or king on the turn while avoiding building a pot where you are often behind.",
+    "category": "Missed Flops"
+  },
+  {
+    "id": "flop_14",
+    "hand": "A♥A♣",
+    "position": "BTN",
+    "board": [
+      "T♠",
+      "9♠",
+      "8♣"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 3BB (43%)",
+      "Bet 5BB (71%)",
+      "Bet 7BB (100%)"
+    ],
+    "correct": "Bet 5BB (71%)",
+    "explanation": "On this extremely wet and connected board, aces are vulnerable to many draws and made straights. You need to bet large to charge draws the maximum price. A 66-75% pot bet denies correct odds to flush draws and open-ended straight draws. Checking risks giving free cards on one of the most dangerous board textures in poker.",
+    "category": "Wet vs Dry Boards"
+  },
+  {
+    "id": "flop_15",
+    "hand": "T♦T♣",
+    "position": "CO",
+    "board": [
+      "J♠",
+      "7♣",
+      "4♦"
+    ],
+    "street": "FLOP",
+    "potSize": "10BB",
+    "stackSize": "90BB",
+    "villainAction": "BB checks, SB checks to you (3-way pot)",
+    "options": [
+      "Check",
+      "Bet 3BB (30%)",
+      "Bet 5BB (50%)",
+      "Bet 8BB (80%)"
+    ],
+    "correct": "Bet 5BB (50%)",
+    "explanation": "In a multiway pot on a relatively dry J-high board, your pocket tens are a strong but vulnerable hand. You should bet to get value from worse pairs and deny equity to overcards. Use a medium sizing of around 50% pot because in multiway pots you need to tighten your cbetting range and use slightly larger sizes since you face multiple opponents who can have the jack.",
+    "category": "Multiway Flops"
+  },
+  {
+    "id": "flop_16",
+    "hand": "8♥7♥",
+    "position": "BB",
+    "board": [
+      "6♥",
+      "5♣",
+      "2♥"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "94BB",
+    "villainAction": "You are first to act vs BTN raiser",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)"
+    ],
+    "correct": "Bet 4BB (66%)",
+    "explanation": "This is a strong donk betting spot. You hold an open-ended straight draw with a flush draw on a board that heavily favors the BB's range. The BTN's preflop raising range mostly contains high cards that miss this low, connected board. Leading out (donk betting) at 66% pot puts maximum pressure while you have excellent equity, and it prevents the BTN from checking back and realizing free equity.",
+    "category": "Donk Betting"
+  },
+  {
+    "id": "flop_17",
+    "hand": "K♠Q♠",
+    "position": "BTN",
+    "board": [
+      "K♦",
+      "8♣",
+      "3♥"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "BB check-raises to 10BB after your 2BB cbet",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 26BB"
+    ],
+    "correct": "Call",
+    "explanation": "You have top pair with a good kicker on a dry board facing a check-raise. Folding would be too tight with TPGK, but raising would isolate you against only better hands like sets and two pair. Calling keeps the pot manageable and allows you to evaluate the turn. On this dry board, the BB's check-raise range includes some bluffs and draws you beat, making a call profitable.",
+    "category": "Facing a Bet"
+  },
+  {
+    "id": "flop_18",
+    "hand": "A♣J♠",
+    "position": "CO",
+    "board": [
+      "J♦",
+      "9♠",
+      "5♣"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)",
+      "Bet 6BB (100%)"
+    ],
+    "correct": "Bet 4BB (66%)",
+    "explanation": "You have top pair top kicker on a moderately connected board. With J9 and 98 possible in the BB's range, this is not a board to use a small cbet sizing. A 66% pot bet targets value from worse jacks (KJ, QJ, JT) and middle pairs while charging straight draws. TPTK is strong enough to bet for value across multiple streets, so building the pot now is important.",
+    "category": "Top Pair Decisions"
+  },
+  {
+    "id": "flop_19",
+    "hand": "Q♥J♥",
+    "position": "SB",
+    "board": [
+      "T♥",
+      "4♥",
+      "4♣"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "94BB",
+    "villainAction": "You are first to act vs BB",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)"
+    ],
+    "correct": "Check",
+    "explanation": "Despite holding a flush draw with two overcards and a gutshot, checking is optimal from the SB on this paired board. Leading into the BB on a paired board is risky because they defend wide preflop and can have trips or full houses. By checking, you can either check-raise as a semi-bluff if the BB bets, or see a free card. The paired texture reduces the value of donk betting since your fold equity is limited.",
+    "category": "C-Bet Decisions"
+  },
+  {
+    "id": "flop_20",
+    "hand": "7♦6♦",
+    "position": "BB",
+    "board": [
+      "A♣",
+      "7♣",
+      "6♠"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "94BB",
+    "villainAction": "CO bets 2BB (33%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 7BB"
+    ],
+    "correct": "Raise to 7BB",
+    "explanation": "You flopped bottom two pair on an ace-high board, which is a hand that plays well as a check-raise. Two pair is vulnerable to being counterfeited if the board pairs higher cards, so you want to build the pot now while you are likely ahead. The ace on board also provides great cover since the CO will often have ace-high hands that may call a raise, giving you strong value.",
+    "category": "Check-Raise Spots"
+  },
+  {
+    "id": "flop_21",
+    "hand": "K♥Q♦",
+    "position": "HJ",
+    "board": [
+      "J♣",
+      "T♠",
+      "3♥"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)",
+      "Bet 6BB (100%)"
+    ],
+    "correct": "Bet 4BB (66%)",
+    "explanation": "You have an open-ended straight draw needing any ace or nine to complete. On this connected board, a medium-sized bet serves dual purposes: you can take down the pot immediately against missed hands, and when called, you have 8 clean outs to the nuts. This is a profitable semi-bluff because you combine fold equity with strong drawing equity. Betting also lets you control the pot better than checking.",
+    "category": "Drawing Hands"
+  },
+  {
+    "id": "flop_22",
+    "hand": "8♠8♥",
+    "position": "BTN",
+    "board": [
+      "A♦",
+      "8♦",
+      "3♠"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (29%)",
+      "Bet 5BB (71%)",
+      "Bet 7BB (100%)"
+    ],
+    "correct": "Bet 2BB (29%)",
+    "explanation": "You flopped middle set on an ace-high board with a diamond draw present. A small bet is optimal because the ace on board will keep many of the BB's ace-x hands in the pot. Betting large could fold out the hands you want action from. The small sizing also balances well with your overall cbetting strategy on ace-high boards where you can bet frequently at a low price.",
+    "category": "Set Mining Hits"
+  },
+  {
+    "id": "flop_23",
+    "hand": "A♠Q♣",
+    "position": "UTG",
+    "board": [
+      "9♥",
+      "7♠",
+      "4♦"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "BB donk bets 5BB (71%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 14BB"
+    ],
+    "correct": "Fold",
+    "explanation": "AQ on a low, disconnected board facing a large donk bet is a clear fold. Your hand has very little equity against the BB's donk betting range, which typically consists of strong made hands like sets, two pair, and overpairs on this texture. You only have six outs to an overcard which may not even be clean. Calling to float is unprofitable out of position in a bloated pot with just ace-high.",
+    "category": "Missed Flops"
+  },
+  {
+    "id": "flop_24",
+    "hand": "K♣K♠",
+    "position": "CO",
+    "board": [
+      "K♥",
+      "4♥",
+      "4♠"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)"
+    ],
+    "correct": "Bet 2BB (33%)",
+    "explanation": "You flopped the second-best possible hand with kings full of fours. On this dry, paired board, a small bet is ideal. The board is unlikely to have connected with the BB's range, so betting large will fold out everything. A 33% pot bet looks like a standard cbet and may induce calls from ace-high, small pairs, or heart draws. Slow-playing by checking risks the BB checking behind on the turn as well.",
+    "category": "Wet vs Dry Boards"
+  },
+  {
+    "id": "flop_25",
+    "hand": "A♦T♦",
+    "position": "BTN",
+    "board": [
+      "T♣",
+      "6♠",
+      "3♦"
+    ],
+    "street": "FLOP",
+    "potSize": "12BB",
+    "stackSize": "88BB",
+    "villainAction": "UTG bets 4BB (33%), MP calls (3-way pot)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 16BB"
+    ],
+    "correct": "Call",
+    "explanation": "In a multiway pot, your top pair top kicker is a solid hand but raising would be risky. UTG's bet into multiple players shows strength, and MP's call suggests medium-strength holdings. Calling keeps the pot controlled and allows you to evaluate the turn. In multiway pots, the average hand strength to continue is much higher, so even TPTK should proceed cautiously rather than inflating the pot.",
+    "category": "Multiway Flops"
+  },
+  {
+    "id": "flop_26",
+    "hand": "6♠5♠",
+    "position": "BB",
+    "board": [
+      "7♣",
+      "4♥",
+      "2♦"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "94BB",
+    "villainAction": "You are first to act vs CO raiser",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)"
+    ],
+    "correct": "Bet 4BB (66%)",
+    "explanation": "This is an excellent donk betting spot with an open-ended straight draw on a low board. The CO's preflop raising range misses this 7-4-2 board almost entirely, while your BB defending range connects well with these low cards. A 66% pot lead applies pressure against overcards and forces the CO to make a difficult decision. If called, you have 8 outs to the nut straight on the turn.",
+    "category": "Donk Betting"
+  },
+  {
+    "id": "flop_27",
+    "hand": "T♠9♠",
+    "position": "CO",
+    "board": [
+      "J♥",
+      "T♦",
+      "5♣"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "BTN 3-bettor bets 5BB (71%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 14BB"
+    ],
+    "correct": "Call",
+    "explanation": "You have second pair with a gutshot straight draw facing a cbet from the 3-bettor. Folding is too weak since you have six outs to two pair or trips plus a gutshot. Raising would be overplaying a medium-strength hand against a 3-bettor's strong range. Calling allows you to see the turn cheaply, where you can improve or re-evaluate based on the action and card.",
+    "category": "Facing a Bet"
+  },
+  {
+    "id": "flop_28",
+    "hand": "A♥9♥",
+    "position": "BTN",
+    "board": [
+      "A♣",
+      "T♠",
+      "7♣"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)",
+      "Bet 6BB (100%)"
+    ],
+    "correct": "Bet 2BB (33%)",
+    "explanation": "You have top pair with a weak kicker on a board with flush draw and straight draw possibilities. A small cbet is correct because you want value from worse aces and middle pairs, but you do not want to inflate the pot with TPWK. The 33% sizing keeps the BB's calling range wide, including hands you beat like KT, QT, and smaller aces, while minimizing your losses when check-raised.",
+    "category": "Top Pair Decisions"
+  },
+  {
+    "id": "flop_29",
+    "hand": "Q♠J♣",
+    "position": "MP",
+    "board": [
+      "Q♦",
+      "Q♣",
+      "8♠"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)"
+    ],
+    "correct": "Bet 2BB (33%)",
+    "explanation": "You flopped trip queens with a jack kicker on a paired, dry board. A small cbet is optimal to extract thin value. Most of the BB's range has completely missed this board, so betting large will fold out everything. The 33% sizing looks like a standard cbet and may induce calls from pocket pairs, ace-high, or the occasional eight. Checking risks giving a free card and losing value from hands that would have called a small bet.",
+    "category": "C-Bet Decisions"
+  },
+  {
+    "id": "flop_30",
+    "hand": "4♥3♥",
+    "position": "BB",
+    "board": [
+      "A♠",
+      "5♦",
+      "2♣"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "94BB",
+    "villainAction": "BTN bets 2BB (33%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 7BB"
+    ],
+    "correct": "Raise to 7BB",
+    "explanation": "You flopped the nut straight on an ace-high dry board. This is an ideal check-raise spot because the ace on board will have connected with many hands in the BTN's range, such as AK, AQ, AJ, and AT. By check-raising, you build the pot with the best possible hand and potentially stack opponents who have top pair. The dry board texture means your opponent is unlikely to fold ace-x hands.",
+    "category": "Check-Raise Spots"
+  },
+  {
+    "id": "flop_31",
+    "hand": "A♣K♦",
+    "position": "CO",
+    "board": [
+      "7♥",
+      "6♥",
+      "5♥"
+    ],
+    "street": "FLOP",
+    "potSize": "7BB",
+    "stackSize": "93BB",
+    "villainAction": "BB donk bets 5BB (71%)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 14BB"
+    ],
+    "correct": "Fold",
+    "explanation": "AK with no heart has completely missed this monotone, connected board. You have no pair, no draw to a flush, and only runner-runner backdoor equity. The BB's large donk bet on a three-heart board signals a made flush, a strong draw, or a pair with a heart. Continuing here is burning money since even if you hit an ace or king on the turn, you could still lose to a flush or straight.",
+    "category": "Wet vs Dry Boards"
+  },
+  {
+    "id": "flop_32",
+    "hand": "J♠T♠",
+    "position": "BTN",
+    "board": [
+      "K♠",
+      "9♣",
+      "2♠"
+    ],
+    "street": "FLOP",
+    "potSize": "8BB",
+    "stackSize": "92BB",
+    "villainAction": "BB bets 6BB (75%), SB folds (was 3-way pot)",
+    "options": [
+      "Fold",
+      "Call",
+      "Raise to 18BB"
+    ],
+    "correct": "Call",
+    "explanation": "You have a flush draw plus a gutshot straight draw (needing a queen for the straight), giving you around 12 outs. Against a large bet from the BB, calling is correct as you have excellent implied odds with position. Raising would turn your hand into a bluff and could face a re-raise. By calling, you keep the pot manageable and can capitalize on your position to win a big pot when you hit or bluff on favorable turn cards.",
+    "category": "Drawing Hands"
+  },
+  {
+    "id": "flop_33",
+    "hand": "K♦J♦",
+    "position": "HJ",
+    "board": [
+      "K♣",
+      "9♠",
+      "6♥"
+    ],
+    "street": "FLOP",
+    "potSize": "6BB",
+    "stackSize": "97BB",
+    "villainAction": "BB checks to you",
+    "options": [
+      "Check",
+      "Bet 2BB (33%)",
+      "Bet 4BB (66%)",
+      "Bet 6BB (100%)"
+    ],
+    "correct": "Bet 4BB (66%)",
+    "explanation": "You have top pair with a good jack kicker on a rainbow, moderately dry board. A medium sizing of 66% pot is ideal because you want to get value from the BB's middle pairs, worse king-x hands, and gutshot draws. The rainbow texture means no flush draws are present, so you do not need to overbet, but the board is connected enough (9-6 allows some straight draws) that checking would give too many free cards to hands with equity.",
+    "category": "Top Pair Decisions"
+  },
+  {
+    "id": "turn_8",
+    "hand": "A♠K♠",
+    "position": "CO",
+    "board": [
+      "Q♠",
+      "7♦",
+      "2♣",
+      "J♠"
+    ],
+    "street": "TURN",
+    "potSize": "14BB",
+    "stackSize": "93BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 5BB (33%)",
+      "Bet 10BB (66%)",
+      "Bet 14BB (100%)"
+    ],
+    "correct": "Bet 10BB (66%)",
+    "explanation": "The turn J♠ gives you the nut flush draw plus two overcards, giving you massive equity against villain's range. Betting 66% pot as a semi-bluff applies maximum pressure while building the pot for when you hit. You have roughly 15 outs (9 flush cards + 6 overcards minus overlaps), making this a highly profitable barrel whether villain folds or calls.",
+    "category": "Semi-Bluff Spots"
+  },
+  {
+    "id": "turn_9",
+    "hand": "K♥K♦",
+    "position": "BTN",
+    "board": [
+      "9♣",
+      "5♥",
+      "3♦",
+      "2♠"
+    ],
+    "street": "TURN",
+    "potSize": "10BB",
+    "stackSize": "95BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 3BB (33%)",
+      "Bet 7BB (66%)",
+      "Bet 10BB (100%)"
+    ],
+    "correct": "Bet 7BB (66%)",
+    "explanation": "On this dry, low board your Kings are a clear overpair and you should bet for value. Villain's checking range likely contains middle pairs, weak draws, and overcards that may call one more street. Betting 66% pot extracts value from second-best hands while denying equity to gutshots and backdoor draws. Checking would give free cards to hands with 6 outs against you.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "turn_10",
+    "hand": "A♥Q♣",
+    "position": "UTG",
+    "board": [
+      "K♦",
+      "T♠",
+      "4♣",
+      "J♥"
+    ],
+    "street": "TURN",
+    "potSize": "16BB",
+    "stackSize": "84BB",
+    "villainAction": "Villain bets 12BB (75%)",
+    "options": [
+      "Fold",
+      "Call 12BB",
+      "Raise to 30BB"
+    ],
+    "correct": "Call 12BB",
+    "explanation": "The J♥ on the turn completes your Broadway straight, giving you the nuts. Against villain's 75% pot bet, calling is superior to raising because your hand is disguised and villain may fire again on the river. Raising would fold out most of villain's bluffs and only get called by very strong hands. Slow playing the nuts here maximizes expected value across multiple streets.",
+    "category": "Slow Play Decisions"
+  },
+  {
+    "id": "turn_11",
+    "hand": "T♠T♣",
+    "position": "HJ",
+    "board": [
+      "8♥",
+      "6♦",
+      "3♣",
+      "A♠"
+    ],
+    "street": "TURN",
+    "potSize": "12BB",
+    "stackSize": "88BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 4BB (33%)",
+      "Bet 8BB (66%)"
+    ],
+    "correct": "Check",
+    "explanation": "The A♠ is a classic scare card that hits much of villain's calling range from the flop. Your tens were an overpair on the flop but are now second pair to the ace. Betting here turns your hand into a bluff since better hands call and worse hands fold. Checking back controls the pot size and lets you reach showdown cheaply with a hand that still has decent equity against villain's checking range.",
+    "category": "Scare Cards"
+  },
+  {
+    "id": "turn_12",
+    "hand": "A♦K♥",
+    "position": "BTN",
+    "board": [
+      "Q♠",
+      "7♦",
+      "2♣",
+      "J♥"
+    ],
+    "street": "TURN",
+    "potSize": "12BB",
+    "stackSize": "88BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 4BB (33%)",
+      "Bet 8BB (66%)",
+      "Bet 12BB (100%)"
+    ],
+    "correct": "Bet 8BB (66%)",
+    "explanation": "You picked up a gutshot straight draw on the turn needing any Ten for Broadway. Combined with your two overcards, you have roughly 10 outs. This is an excellent double-barrel spot: you have strong equity when called, significant fold equity against villain's medium-strength hands, and the J♥ is a great card to represent since it connects with your preflop range. Pot geometry favors building the pot now to set up a river shove.",
+    "category": "Barrel Decisions"
+  },
+  {
+    "id": "turn_13",
+    "hand": "9♥8♥",
+    "position": "BB",
+    "board": [
+      "7♥",
+      "6♣",
+      "2♦",
+      "K♠"
+    ],
+    "street": "TURN",
+    "potSize": "8BB",
+    "stackSize": "92BB",
+    "villainAction": "Villain bets 6BB (75%)",
+    "options": [
+      "Fold",
+      "Call 6BB",
+      "Raise to 18BB"
+    ],
+    "correct": "Call 6BB",
+    "explanation": "You hold an open-ended straight draw needing any five or ten, giving you 8 clean outs. With pot odds of 6BB to win 14BB, you need roughly 30% equity to call, and your ~17% to hit on the river plus implied odds when you make your straight make this a profitable call. Raising as a semi-bluff is too aggressive since the K♠ favors villain's range, and folding discards too much equity. Calling keeps you in with a draw that can stack villain on the river.",
+    "category": "Drawing Odds"
+  },
+  {
+    "id": "turn_14",
+    "hand": "Q♥Q♠",
+    "position": "CO",
+    "board": [
+      "J♣",
+      "8♦",
+      "4♠",
+      "4♥"
+    ],
+    "street": "TURN",
+    "potSize": "15BB",
+    "stackSize": "85BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 5BB (33%)",
+      "Bet 10BB (66%)",
+      "Bet 15BB (100%)"
+    ],
+    "correct": "Bet 10BB (66%)",
+    "explanation": "The board pairing with the 4♥ is a great card for your overpair. It reduces the likelihood villain has trips and your Queens are now even further ahead of villain's range of jacks, eights, and draws. Bet 66% pot to extract value and deny equity from hands like T9, 97, and flush draws. The paired board actually improves your relative hand strength since it removes a card that could have made two pair for villain.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "turn_15",
+    "hand": "A♣J♣",
+    "position": "BTN",
+    "board": [
+      "T♣",
+      "5♣",
+      "3♦",
+      "9♥"
+    ],
+    "street": "TURN",
+    "potSize": "18BB",
+    "stackSize": "82BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 6BB (33%)",
+      "Bet 12BB (66%)",
+      "Bet 18BB (100%)"
+    ],
+    "correct": "Bet 12BB (66%)",
+    "explanation": "You have the nut flush draw plus an overcard and a gutshot to a straight with any queen. With roughly 15 outs, your equity is around 30% even if called, making this a very profitable semi-bluff. The 9♥ turn also gives you a credible story of having a straight or overpair, increasing fold equity. Betting 66% pot balances your value-to-bluff ratio and puts villain in a difficult spot with marginal made hands.",
+    "category": "Semi-Bluff Spots"
+  },
+  {
+    "id": "turn_16",
+    "hand": "J♦T♦",
+    "position": "SB",
+    "board": [
+      "9♠",
+      "8♣",
+      "2♥",
+      "Q♦"
+    ],
+    "street": "TURN",
+    "potSize": "20BB",
+    "stackSize": "80BB",
+    "villainAction": "Villain bets 10BB (50%)",
+    "options": [
+      "Fold",
+      "Call 10BB",
+      "Raise to 28BB"
+    ],
+    "correct": "Raise to 28BB",
+    "explanation": "The Q♦ turn gives you a straight and a backdoor flush draw to the diamond. With the current nuts, raising is correct because the board is extremely wet with many draws that will call. A raise to 28BB builds the pot while you have the best hand and protects against the many redraws available (any 7, T, J, or paired board could beat you on the river). Slow playing on this coordinated texture would be a mistake since so many river cards can kill your action or your hand.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "turn_17",
+    "hand": "A♠8♠",
+    "position": "CO",
+    "board": [
+      "K♥",
+      "9♥",
+      "5♦",
+      "3♥"
+    ],
+    "street": "TURN",
+    "potSize": "10BB",
+    "stackSize": "90BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 3BB (33%)",
+      "Bet 7BB (66%)",
+      "Bet 10BB (100%)"
+    ],
+    "correct": "Check",
+    "explanation": "The 3♥ completing the three-flush on board makes this a terrible spot to barrel as a bluff. Villain's checking range after calling the flop on a K-high board likely includes Kx hands and heart draws that just got there. Your ace-high has showdown value but cannot withstand a check-raise, and many of villain's hands either have you crushed or just improved. Checking back preserves your showdown equity and avoids bloating the pot when you are often behind.",
+    "category": "Pot Control"
+  },
+  {
+    "id": "turn_18",
+    "hand": "6♠6♣",
+    "position": "BB",
+    "board": [
+      "A♦",
+      "T♠",
+      "6♥",
+      "T♣"
+    ],
+    "street": "TURN",
+    "potSize": "14BB",
+    "stackSize": "86BB",
+    "villainAction": "Villain bets 10BB (71%)",
+    "options": [
+      "Fold",
+      "Call 10BB",
+      "Raise to 28BB"
+    ],
+    "correct": "Call 10BB",
+    "explanation": "You have a full house (sixes full of tens) which is an extremely strong hand. However, raising would narrow villain's continuing range to only hands that beat you (like TT, AA, AT) or chop. By calling, you keep villain's bluffs and weaker value bets (like Ax, KT, QT) in the pot for a river bet. The board is not draw-heavy, so there is no urgency to protect your hand. Let villain continue to bet the river where you can then raise for maximum value.",
+    "category": "Slow Play Decisions"
+  },
+  {
+    "id": "turn_19",
+    "hand": "K♣Q♣",
+    "position": "HJ",
+    "board": [
+      "J♣",
+      "7♠",
+      "4♥",
+      "9♣"
+    ],
+    "street": "TURN",
+    "potSize": "16BB",
+    "stackSize": "84BB",
+    "villainAction": "Villain bets 8BB (50%)",
+    "options": [
+      "Fold",
+      "Call 8BB",
+      "Raise to 22BB"
+    ],
+    "correct": "Call 8BB",
+    "explanation": "The 9♣ gives you a flush draw plus a gutshot straight draw to any ten, providing roughly 12 outs. With pot odds of 8BB into a 24BB pot (33% needed), your direct equity of about 25% falls slightly short, but your strong implied odds when hitting the flush or straight make calling clearly profitable. Raising is risky as villain may shove and force you to fold equity, while folding throws away a powerful draw. Calling allows you to realize your equity on the river.",
+    "category": "Drawing Odds"
+  },
+  {
+    "id": "turn_20",
+    "hand": "A♥A♦",
+    "position": "UTG",
+    "board": [
+      "K♠",
+      "9♣",
+      "3♥",
+      "K♦"
+    ],
+    "street": "TURN",
+    "potSize": "18BB",
+    "stackSize": "82BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 6BB (33%)",
+      "Bet 12BB (66%)",
+      "Bet 18BB (100%)"
+    ],
+    "correct": "Bet 6BB (33%)",
+    "explanation": "With pocket aces on a paired king board, you have the second-best possible hand behind only KK or K9/K3. A small 33% pot bet is optimal because it extracts thin value from pairs like QQ, JJ, TT, and pocket nines that might fold to a larger sizing. The paired board reduces the number of combos that beat you, and villain's checking range is mostly medium-strength hands that can call a small bet but would fold to larger pressure. This sizing also keeps villain's bluff-catching range wide.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "turn_21",
+    "hand": "8♥7♥",
+    "position": "BB",
+    "board": [
+      "6♦",
+      "5♠",
+      "2♣",
+      "A♥"
+    ],
+    "street": "TURN",
+    "potSize": "12BB",
+    "stackSize": "88BB",
+    "villainAction": "Villain bets 9BB (75%)",
+    "options": [
+      "Fold",
+      "Call 9BB",
+      "Raise to 26BB"
+    ],
+    "correct": "Raise to 26BB",
+    "explanation": "You have an open-ended straight draw needing any four or nine for the nuts, and the A♥ turn gives you a backdoor flush draw as well. This is an excellent check-raise spot because the ace is a great card to represent since it hits your defending range from the big blind (Ax hands). The check-raise has strong fold equity against villain's middle-pair type hands, and when called you still have 8+ clean outs. This play also balances your check-raising range with the Ax hands you would play similarly.",
+    "category": "Check-Raise Turn"
+  },
+  {
+    "id": "turn_22",
+    "hand": "J♥T♥",
+    "position": "CO",
+    "board": [
+      "A♠",
+      "K♦",
+      "8♣",
+      "Q♥"
+    ],
+    "street": "TURN",
+    "potSize": "22BB",
+    "stackSize": "78BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 7BB (33%)",
+      "Bet 15BB (66%)",
+      "Bet 22BB (100%)"
+    ],
+    "correct": "Bet 15BB (66%)",
+    "explanation": "The Q♥ completes your straight to the Broadway (AKQJT), giving you the second nuts behind only JT with no heart (as you block the royal flush draw). With the nuts, you must bet for value on this very connected board where villain could hold many two-pair or set combinations. Betting 66% pot maximizes value since villain's range contains AK, AQ, KQ, and sets that are likely to call. Checking would be a significant missed value opportunity on a board this rich.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "turn_23",
+    "hand": "9♣9♦",
+    "position": "BTN",
+    "board": [
+      "J♠",
+      "7♣",
+      "4♦",
+      "J♦"
+    ],
+    "street": "TURN",
+    "potSize": "11BB",
+    "stackSize": "89BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 4BB (33%)",
+      "Bet 7BB (66%)"
+    ],
+    "correct": "Check",
+    "explanation": "The board pairing with the J♦ is a bad card for your pocket nines. Any jack in villain's range just improved to trips, and villain could be check-trapping with Jx hands. Your nines are a medium-strength hand that can win at showdown but cannot comfortably call a check-raise. Checking back controls the pot, avoids the check-raise trap, and allows you to see a cheap river with a hand that has some showdown value. This is a textbook pot control spot where the risk of betting outweighs the reward.",
+    "category": "Pot Control"
+  },
+  {
+    "id": "turn_24",
+    "hand": "Q♦J♦",
+    "position": "SB",
+    "board": [
+      "T♦",
+      "8♠",
+      "3♦",
+      "5♣"
+    ],
+    "street": "TURN",
+    "potSize": "14BB",
+    "stackSize": "86BB",
+    "villainAction": "Villain bets 10BB (71%)",
+    "options": [
+      "Fold",
+      "Call 10BB",
+      "Raise to 28BB"
+    ],
+    "correct": "Call 10BB",
+    "explanation": "You hold a flush draw plus an open-ended straight draw (any 9 or K makes a straight, any diamond makes a flush). With approximately 15 outs, your equity is around 32%, and you are getting pot odds of 10BB into 24BB requiring about 29%. The direct odds justify a call, and your massive implied odds when completing either draw make this a clearly profitable call. Raising risks getting jammed on and folding out the bluffs in villain's range, while calling keeps the pot manageable and allows you to realize your equity.",
+    "category": "Drawing Odds"
+  },
+  {
+    "id": "turn_25",
+    "hand": "A♣K♦",
+    "position": "UTG",
+    "board": [
+      "Q♥",
+      "T♣",
+      "6♠",
+      "3♦"
+    ],
+    "street": "TURN",
+    "potSize": "15BB",
+    "stackSize": "85BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 5BB (33%)",
+      "Bet 10BB (66%)",
+      "Bet 15BB (100%)"
+    ],
+    "correct": "Bet 10BB (66%)",
+    "explanation": "This is a strong double-barrel spot. The 3♦ is a brick that changes nothing, and you still have two overcards plus a gutshot straight draw to any jack. Your UTG range is perceived as very strong, giving you significant fold equity against villain's floats and weak pairs. Firing a second barrel denies equity to hands like KJ, J9, and 98 that have draws against you, and your hand can still improve to top pair or a straight on the river. Checking would give up initiative in a spot where your range advantage demands aggression.",
+    "category": "Barrel Decisions"
+  },
+  {
+    "id": "turn_26",
+    "hand": "7♠7♣",
+    "position": "BB",
+    "board": [
+      "A♣",
+      "8♦",
+      "5♥",
+      "7♦"
+    ],
+    "street": "TURN",
+    "potSize": "16BB",
+    "stackSize": "84BB",
+    "villainAction": "Villain bets 12BB (75%)",
+    "options": [
+      "Fold",
+      "Call 12BB",
+      "Raise to 32BB"
+    ],
+    "correct": "Call 12BB",
+    "explanation": "You just hit a set of sevens on the turn, giving you an extremely strong but disguised hand. Calling is preferred over raising because villain is showing aggression and will likely fire again on the river. The board has some straight draw potential (64, 96) but no flush draws, so your hand is relatively safe. By flat calling, you allow villain to continue betting the river with their value hands and bluffs, maximizing your expected value from this monster hand.",
+    "category": "Slow Play Decisions"
+  },
+  {
+    "id": "turn_27",
+    "hand": "K♥J♠",
+    "position": "HJ",
+    "board": [
+      "Q♣",
+      "9♦",
+      "4♠",
+      "T♥"
+    ],
+    "street": "TURN",
+    "potSize": "20BB",
+    "stackSize": "80BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 7BB (33%)",
+      "Bet 13BB (66%)",
+      "Bet 20BB (100%)"
+    ],
+    "correct": "Bet 13BB (66%)",
+    "explanation": "The T♥ turn gives you the nut straight (KQJT9). This is a must-bet situation for value on a board with many draws and second-best hands. Villain could hold QT, Q9, T9, or a jack for a lower straight that will pay you off. Betting 66% pot is optimal because it builds the pot for a river shove while giving draws incorrect odds to continue. The board is too wet to slow play as any 8, J, or paired card on the river could either kill your action or give villain a chop.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "turn_28",
+    "hand": "A♠T♣",
+    "position": "CO",
+    "board": [
+      "K♣",
+      "J♠",
+      "5♥",
+      "2♦"
+    ],
+    "street": "TURN",
+    "potSize": "13BB",
+    "stackSize": "87BB",
+    "villainAction": "Villain bets 9BB (69%)",
+    "options": [
+      "Fold",
+      "Call 9BB",
+      "Raise to 24BB"
+    ],
+    "correct": "Fold",
+    "explanation": "Facing a sizeable turn bet, your ace-high with a gutshot (needing a queen) is not strong enough to continue. You have only 4 outs to the straight and 3 outs to top pair (aces), but even making top pair may not be good against villain's betting range on this K-high board. The pot odds require about 29% equity, and your roughly 15% equity from the gutshot alone does not justify calling. Implied odds are limited since hitting an ace may not win, making a disciplined fold the correct play here.",
+    "category": "Facing Aggression"
+  },
+  {
+    "id": "turn_29",
+    "hand": "Q♠9♠",
+    "position": "BTN",
+    "board": [
+      "Q♦",
+      "7♣",
+      "3♠",
+      "8♠"
+    ],
+    "street": "TURN",
+    "potSize": "14BB",
+    "stackSize": "86BB",
+    "villainAction": "Villain bets 10BB (71%)",
+    "options": [
+      "Fold",
+      "Call 10BB",
+      "Raise to 28BB"
+    ],
+    "correct": "Call 10BB",
+    "explanation": "You have top pair with a flush draw, giving you a very strong combination hand. With roughly 25% pure equity from the flush draw plus your top pair potentially being the best hand already, calling is clearly profitable. Raising would be overplaying your hand since villain's betting range on this turn likely contains sets, two pairs, and overpairs that dominate you. By calling, you keep the pot manageable while giving yourself the chance to improve to a flush on the river and win a big pot.",
+    "category": "Bluff Catching"
+  },
+  {
+    "id": "turn_30",
+    "hand": "5♦5♠",
+    "position": "BB",
+    "board": [
+      "K♥",
+      "T♦",
+      "7♣",
+      "5♥"
+    ],
+    "street": "TURN",
+    "potSize": "18BB",
+    "stackSize": "82BB",
+    "villainAction": "Villain bets 12BB (67%)",
+    "options": [
+      "Fold",
+      "Call 12BB",
+      "Raise to 32BB"
+    ],
+    "correct": "Raise to 32BB",
+    "explanation": "You turned a set of fives, and this is a spot where you should raise rather than slow play. The board has flush draw and straight draw possibilities (any 8-9 combination, heart draws), meaning many river cards could complete draws or kill your action. Raising now extracts value from villain's Kx hands, overpairs, and draws that will call. The check-raise also builds the pot to set up a river shove with roughly pot-sized bet remaining. Letting another card come could be disastrous if a heart, 8, 9, or board-pairing card arrives.",
+    "category": "Check-Raise Turn"
+  },
+  {
+    "id": "turn_31",
+    "hand": "J♣T♠",
+    "position": "SB",
+    "board": [
+      "A♥",
+      "J♦",
+      "8♣",
+      "8♥"
+    ],
+    "street": "TURN",
+    "potSize": "11BB",
+    "stackSize": "89BB",
+    "villainAction": "Villain bets 8BB (73%)",
+    "options": [
+      "Fold",
+      "Call 8BB",
+      "Raise to 22BB"
+    ],
+    "correct": "Call 8BB",
+    "explanation": "You hold second pair (jacks) on a board that paired eights on the turn. This is a classic bluff-catching situation where villain could be value betting with aces, betting a bluff with missed draws, or semi-bluffing with a heart draw. Your jack is strong enough to beat bluffs but not strong enough to raise for value. Folding would be too tight given your pot odds and the frequency villain should be bluffing here. Calling and evaluating the river is the most balanced approach with this medium-strength holding.",
+    "category": "Bluff Catching"
+  },
+  {
+    "id": "turn_32",
+    "hand": "A♦9♦",
+    "position": "HJ",
+    "board": [
+      "K♠",
+      "Q♣",
+      "6♦",
+      "4♦"
+    ],
+    "street": "TURN",
+    "potSize": "16BB",
+    "stackSize": "84BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 5BB (33%)",
+      "Bet 11BB (66%)",
+      "Bet 16BB (100%)"
+    ],
+    "correct": "Bet 11BB (66%)",
+    "explanation": "The 4♦ gives you a nut flush draw, transforming your hand from a pure bluff into a powerful semi-bluff. Betting 66% pot serves a dual purpose: you have excellent fold equity on this K-Q high board that connects with your perceived preflop range, and when called you have 9 outs to the nut flush. This is an ideal double-barrel spot because you represent strong Kx or QQ+ hands, villain will struggle to continue with middle pairs, and you have a strong backup plan when called. Checking would waste your positional advantage and drawing equity.",
+    "category": "Barrel Decisions"
+  },
+  {
+    "id": "river_8",
+    "hand": "A♠K♠",
+    "position": "BTN",
+    "board": [
+      "Q♠",
+      "7♦",
+      "2♣",
+      "J♥",
+      "T♠"
+    ],
+    "street": "RIVER",
+    "potSize": "24BB",
+    "stackSize": "76BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 8BB (33%)",
+      "Bet 18BB (75%)",
+      "All-In (76BB)"
+    ],
+    "correct": "Bet 18BB (75%)",
+    "explanation": "You've made the Broadway straight on the river and also hold the nut flush draw that completed. With the nuts, you want to bet large to extract maximum value from hands like two pair and sets that can't fold. A 75% pot bet is ideal because it targets the thick value region—villain has many Qx and Jx hands that improved enough to call but can't beat a straight. Overbetting isn't necessary since the board is scary enough that villain may fold too often to a shove.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "river_9",
+    "hand": "9♠8♠",
+    "position": "CO",
+    "board": [
+      "K♠",
+      "6♠",
+      "3♦",
+      "2♥",
+      "Q♣"
+    ],
+    "street": "RIVER",
+    "potSize": "18BB",
+    "stackSize": "65BB",
+    "villainAction": "Villain bets 14BB (78%)",
+    "options": [
+      "Fold",
+      "Call 14BB",
+      "Raise to 38BB"
+    ],
+    "correct": "Fold",
+    "explanation": "Your missed flush draw has no showdown value—just nine-high. While turning this into a bluff raise might seem tempting, the Q♣ river is a bad card to bluff on because it improves many of villain's value hands (AQ, KQ). Additionally, you don't block any of villain's value range since you hold no queens or kings. Without strong blocker effects, a bluff raise here will get called too often to be profitable. Simply fold and wait for a better spot.",
+    "category": "Missed Draw Decisions"
+  },
+  {
+    "id": "river_10",
+    "hand": "A♥A♦",
+    "position": "UTG",
+    "board": [
+      "K♣",
+      "8♠",
+      "4♥",
+      "8♦",
+      "3♣"
+    ],
+    "street": "RIVER",
+    "potSize": "30BB",
+    "stackSize": "85BB",
+    "villainAction": "Villain bets 22BB (73%)",
+    "options": [
+      "Fold",
+      "Call 22BB",
+      "Raise to 60BB"
+    ],
+    "correct": "Call 22BB",
+    "explanation": "Pocket aces are a classic bluff catcher on this board. You beat all bluffs and one-pair hands but lose to trips (8x), full houses, and slow-played kings. Raising would only get called by hands that beat you—this is a key river principle called the 'raise folds out worse, gets called by better' trap. By calling, you apply Minimum Defense Frequency (MDF) correctly, defending enough of your range to prevent villain from profiting with any two cards as a bluff. Against a 73% pot bet, you need to defend roughly 58% of your range, and AA is firmly in your calling range.",
+    "category": "Bluff Catching"
+  },
+  {
+    "id": "river_11",
+    "hand": "J♠T♠",
+    "position": "BB",
+    "board": [
+      "9♠",
+      "7♠",
+      "2♦",
+      "K♥",
+      "4♣"
+    ],
+    "street": "RIVER",
+    "potSize": "22BB",
+    "stackSize": "50BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 7BB (33%)",
+      "Bet 16BB (75%)",
+      "All-In (50BB)"
+    ],
+    "correct": "Bet 16BB (75%)",
+    "explanation": "You missed your flush draw and open-ended straight draw, leaving you with jack-high and zero showdown value. Since checking guarantees a loss, this is an ideal candidate to turn into a bluff. The 75% pot sizing is correct because it represents a polarized range—you're either betting for value with strong hands or bluffing. A smaller bet wouldn't apply enough pressure to fold out villain's medium-strength hands like pocket pairs and weak kings. Your spade blockers also reduce the chance villain has a flush, making it easier for them to fold one-pair hands.",
+    "category": "Bluffing"
+  },
+  {
+    "id": "river_12",
+    "hand": "Q♥Q♣",
+    "position": "HJ",
+    "board": [
+      "J♦",
+      "5♣",
+      "3♠",
+      "9♥",
+      "2♦"
+    ],
+    "street": "RIVER",
+    "potSize": "20BB",
+    "stackSize": "90BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 6BB (30%)",
+      "Bet 15BB (75%)",
+      "Bet 30BB (150%)"
+    ],
+    "correct": "Bet 15BB (75%)",
+    "explanation": "Queens are a strong overpair on this dry, disconnected board. Since villain checked, they likely have a medium-strength hand like a pair of jacks, nines, or a pocket pair below queens. A 75% pot bet extracts thick value from these hands—they're strong enough to call one bet but will fold to extreme pressure. Checking back would be a missed opportunity since very few river cards would improve villain's hand. The 150% overbet is too large here because the board is so dry that villain's calling range narrows dramatically at larger sizes.",
+    "category": "Value Betting"
+  },
+  {
+    "id": "river_13",
+    "hand": "A♦5♦",
+    "position": "BTN",
+    "board": [
+      "K♦",
+      "8♦",
+      "6♣",
+      "T♥",
+      "J♠"
+    ],
+    "street": "RIVER",
+    "potSize": "32BB",
+    "stackSize": "70BB",
+    "villainAction": "Villain bets 24BB (75%)",
+    "options": [
+      "Fold",
+      "Call 24BB",
+      "Raise to 60BB"
+    ],
+    "correct": "Raise to 60BB",
+    "explanation": "This is a powerful bluff raise spot. You missed your nut flush draw but hold the A♦, which is a critical blocker—it means villain cannot have the nut flush. The J♠ river completes the Broadway straight for KQ and QT, making your bluff represent a very believable value hand. By raising, you put maximum pressure on villain's one-pair hands and even two-pair combinations. The ace of diamonds blocker effect is one of the most important concepts in river play: when you block the nuts, villain's betting range is weighted more toward bluffs and medium-strength hands that must fold to a raise.",
+    "category": "River Raises"
+  },
+  {
+    "id": "river_14",
+    "hand": "7♥6♥",
+    "position": "SB",
+    "board": [
+      "T♥",
+      "5♠",
+      "4♣",
+      "A♦",
+      "K♠"
+    ],
+    "street": "RIVER",
+    "potSize": "16BB",
+    "stackSize": "42BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 5BB (33%)",
+      "Bet 12BB (75%)"
+    ],
+    "correct": "Bet 5BB (33%)",
+    "explanation": "You hold a straight (3-7) but the board ran out with two overcards (A and K) that hit villain's range hard. A blocking bet of 33% pot serves two purposes: it extracts thin value from hands like pocket pairs (88, 99) and weak tens that might call a small bet but fold to a larger one, and it controls the pot size in case villain is trapping with a set of aces or kings. This is the essence of a blocking bet—you're setting your own price rather than letting villain dictate the action with a check-raise. Small sizing keeps villain's bluff-raising frequency low.",
+    "category": "Blocking Bets"
+  },
+  {
+    "id": "river_15",
+    "hand": "K♣Q♠",
+    "position": "CO",
+    "board": [
+      "K♥",
+      "9♠",
+      "4♦",
+      "9♣",
+      "3♥"
+    ],
+    "street": "RIVER",
+    "potSize": "28BB",
+    "stackSize": "72BB",
+    "villainAction": "Villain goes All-In (72BB)",
+    "options": [
+      "Fold",
+      "Call 72BB"
+    ],
+    "correct": "Call 72BB",
+    "explanation": "Facing an all-in overbet on the river, you need to carefully evaluate your hand strength relative to villain's polarized range. With top pair and a queen kicker, you beat all bluffs and lose to 9x (trips), 44 (full house), and KK/K9 (better hands). However, villain's shoving range should include missed draws and bluffs—the board doesn't have many natural draws that got there, meaning villain could be turning hands like QJ, QT, or suited connectors into bluffs. Against an overbet, MDF says you only need to defend about 28% of your range. KQ with the K♣ blocking some of villain's Kx value combos makes this a mandatory call at the top of your bluff-catching range.",
+    "category": "Facing All-In"
+  },
+  {
+    "id": "river_16",
+    "hand": "T♠9♠",
+    "position": "BB",
+    "board": [
+      "8♣",
+      "7♦",
+      "2♠",
+      "A♠",
+      "3♣"
+    ],
+    "street": "RIVER",
+    "potSize": "20BB",
+    "stackSize": "55BB",
+    "villainAction": "Villain bets 15BB (75%)",
+    "options": [
+      "Fold",
+      "Call 15BB",
+      "Raise to 42BB"
+    ],
+    "correct": "Fold",
+    "explanation": "You have an open-ended straight draw that bricked and a backdoor flush draw that also missed. With ten-high, you have no showdown value. While raising as a bluff is tempting, the board texture makes it a poor spot—the A♠ turn would have been a natural barreling card for villain's strong aces, and the 3♣ river doesn't change much. Your T♠9♠ doesn't block villain's value hands (sets, two pair, overpairs) effectively. A good bluffing hand here would need to block villain's calling range; yours doesn't. Discipline to fold missed draws without strong blockers is crucial to long-term river profitability.",
+    "category": "Missed Draw Decisions"
+  },
+  {
+    "id": "river_17",
+    "hand": "A♣A♠",
+    "position": "UTG",
+    "board": [
+      "7♣",
+      "5♣",
+      "2♥",
+      "4♦",
+      "8♣"
+    ],
+    "street": "RIVER",
+    "potSize": "40BB",
+    "stackSize": "80BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 13BB (33%)",
+      "Bet 30BB (75%)",
+      "All-In (80BB)"
+    ],
+    "correct": "All-In (80BB)",
+    "explanation": "The river completed the flush and the straight, making this a highly polarizing board. With the A♣ giving you the nut flush, an overbet shove is the optimal play. Overbetting works best when your range is highly polarized—you either have the nuts or nothing. Since you hold the nut flush, you're firmly on the value side. Villain's medium-strength hands (overpairs, two pair, sets without a club) are in a terrible spot against an overbet because they block very few of your value combos. The 200% pot overbet maximizes your expected value because hands like sets and straights without the flush will often feel priced in to call.",
+    "category": "Overbets"
+  },
+  {
+    "id": "river_18",
+    "hand": "J♣T♣",
+    "position": "BTN",
+    "board": [
+      "Q♥",
+      "9♣",
+      "3♦",
+      "6♠",
+      "K♦"
+    ],
+    "street": "RIVER",
+    "potSize": "26BB",
+    "stackSize": "87BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 9BB (33%)",
+      "Bet 20BB (75%)"
+    ],
+    "correct": "Bet 9BB (33%)",
+    "explanation": "You rivered a straight (9-K) but the board is somewhat coordinated with potential for better straights (AT has the nuts with Broadway). A thin value bet of 33% pot is ideal here because it targets the weaker portion of villain's range—hands like Qx, pocket pairs, and weak kings that will call a small bet. Larger sizing would fold out the hands you want to call while only getting action from hands that beat you (AT, KQ). Thin value betting is about recognizing when your hand is good often enough to profit from a bet, but not strong enough to withstand a raise—if villain raises, you can comfortably fold.",
+    "category": "Thin Value"
+  },
+  {
+    "id": "river_19",
+    "hand": "8♥7♥",
+    "position": "BB",
+    "board": [
+      "K♠",
+      "6♦",
+      "5♣",
+      "2♥",
+      "A♥"
+    ],
+    "street": "RIVER",
+    "potSize": "14BB",
+    "stackSize": "93BB",
+    "villainAction": "Villain bets 10BB (71%)",
+    "options": [
+      "Fold",
+      "Call 10BB",
+      "Raise to 32BB"
+    ],
+    "correct": "Raise to 32BB",
+    "explanation": "You flopped an open-ended straight draw with 87 on a K-6-5 board, and the deuce on the turn gave you the straight (4-8). The river ace is a great card for a value raise because it looks like it could have completed your draws or given you a better hand. Villain's 71% pot bet likely represents a king or an ace that just paired up, both of which are strong enough to call a raise. By raising to 32BB (roughly 2.3x), you extract significant value from top pair hands while keeping the raise size believable. This is a spot where villain's range is capped (they would have bet bigger with true monsters), making your raise very profitable.",
+    "category": "River Raises"
+  },
+  {
+    "id": "river_20",
+    "hand": "Q♦J♦",
+    "position": "HJ",
+    "board": [
+      "T♦",
+      "4♦",
+      "3♠",
+      "7♣",
+      "9♥"
+    ],
+    "street": "RIVER",
+    "potSize": "22BB",
+    "stackSize": "60BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 7BB (33%)",
+      "Bet 16BB (75%)",
+      "All-In (60BB)"
+    ],
+    "correct": "Bet 16BB (75%)",
+    "explanation": "You missed your flush draw and gutshot straight draw, leaving you with queen-high. However, this is a textbook bluffing spot. The 9♥ river completes potential straights (J8, 86) that are naturally in your range, making a bluff highly credible. Villain checked, indicating weakness—likely a medium pocket pair or weak ten. The 75% pot bet applies the right amount of pressure: according to MDF, villain needs to defend about 57% of their checking range, but most of their medium-strength hands won't meet that threshold on a board where straights just completed. Your diamond blockers also slightly reduce villain's chance of having a flush draw turned pair that might call.",
+    "category": "Bluffing"
+  },
+  {
+    "id": "river_21",
+    "hand": "K♠K♦",
+    "position": "MP",
+    "board": [
+      "A♣",
+      "J♥",
+      "8♠",
+      "3♦",
+      "5♥"
+    ],
+    "street": "RIVER",
+    "potSize": "35BB",
+    "stackSize": "65BB",
+    "villainAction": "Villain bets 28BB (80%)",
+    "options": [
+      "Fold",
+      "Call 28BB",
+      "Raise to 65BB"
+    ],
+    "correct": "Call 28BB",
+    "explanation": "Pocket kings on an ace-high board is the quintessential bluff-catching scenario. You beat all bluffs (missed draws, turned bluffs with hands like QT, T9) but lose to any ace. Villain's 80% pot bet is polarized—they either have a strong hand (Ax, sets) or a bluff. Raising is a mistake because you only get called by aces and better, which all crush you. The call is correct because against villain's polarized betting range, kings sit right at the bluff-catching threshold. With MDF requiring you to defend roughly 56% against this sizing, KK is a hand that must call to prevent villain from over-bluffing this spot profitably.",
+    "category": "Bluff Catching"
+  },
+  {
+    "id": "river_22",
+    "hand": "5♠4♠",
+    "position": "BB",
+    "board": [
+      "A♠",
+      "K♦",
+      "9♠",
+      "6♣",
+      "J♣"
+    ],
+    "street": "RIVER",
+    "potSize": "30BB",
+    "stackSize": "48BB",
+    "villainAction": "Villain bets 10BB (33%)",
+    "options": [
+      "Fold",
+      "Call 10BB",
+      "Raise to 35BB"
+    ],
+    "correct": "Raise to 35BB",
+    "explanation": "This is a creative river check-raise bluff opportunity. Villain's small 33% pot bet screams thin value or a blocking bet—they likely have a medium-strength hand like Kx or 9x and are trying to get to showdown cheaply. Your 5♠4♠ missed the flush draw and has zero showdown value, making it a perfect bluff candidate. Crucially, you hold two spades including the 4♠, which blocks some flush combinations villain might have. By raising to 35BB, you put villain in a tough spot with their capped range—most one-pair hands cannot profitably call a raise this large. River check-raise bluffs are most effective when villain's bet sizing reveals a condensed, medium-strength range.",
+    "category": "River Check-Raise"
+  },
+  {
+    "id": "river_23",
+    "hand": "T♥T♦",
+    "position": "CO",
+    "board": [
+      "9♣",
+      "7♥",
+      "2♠",
+      "5♦",
+      "9♦"
+    ],
+    "street": "RIVER",
+    "potSize": "18BB",
+    "stackSize": "82BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 6BB (33%)",
+      "Bet 14BB (75%)",
+      "Bet 36BB (200%)"
+    ],
+    "correct": "Bet 36BB (200%)",
+    "explanation": "The river paired the nine, giving you a very strong hand—tens full of nines. This is an ideal overbet spot because the board pairing creates extreme polarization in your range. You either have a full house (or better) or complete air. Villain's checking range is capped at one pair and weak two pairs that can't withstand heavy pressure, but hands like 87, A7, and pocket pairs 66-88 will feel compelled to call an overbet because they look like decent bluff catchers. The 200% pot overbet maximizes your value because villain's bluff-catching hands will reason that your range includes many bluffs at this sizing, increasing their calling frequency with second-best hands.",
+    "category": "Overbets"
+  },
+  {
+    "id": "river_24",
+    "hand": "A♥Q♥",
+    "position": "SB",
+    "board": [
+      "Q♦",
+      "T♣",
+      "6♥",
+      "3♥",
+      "8♠"
+    ],
+    "street": "RIVER",
+    "potSize": "24BB",
+    "stackSize": "55BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 8BB (33%)",
+      "Bet 18BB (75%)"
+    ],
+    "correct": "Bet 8BB (33%)",
+    "explanation": "Top pair top kicker is a strong hand, but the river 8♠ completes some straight draws (J9, 97) and the board has enough texture that villain could be trapping with slow-played sets or two pair. A 33% pot thin value bet is the optimal sizing because it targets villain's weaker holdings—pocket pairs like JJ, 99, and weak queens that will call a small bet. If you bet 75% pot, you fold out all the hands you beat and only get called by hands that beat you or are very close in strength. Thin value betting at small sizes is one of the highest-EV plays in poker because it earns extra value from hands that would check back or fold to larger bets.",
+    "category": "Thin Value"
+  },
+  {
+    "id": "river_25",
+    "hand": "6♣5♣",
+    "position": "BTN",
+    "board": [
+      "A♣",
+      "J♣",
+      "7♦",
+      "Q♠",
+      "2♥"
+    ],
+    "street": "RIVER",
+    "potSize": "36BB",
+    "stackSize": "82BB",
+    "villainAction": "Villain goes All-In (82BB)",
+    "options": [
+      "Fold",
+      "Call 82BB"
+    ],
+    "correct": "Fold",
+    "explanation": "Facing an all-in overbet with a missed flush draw and just six-high, this is a clear fold. While you might think villain is bluffing, the 2♥ river is a blank that doesn't change much, and villain chose to overbet jam—a sizing that represents extreme polarization. Your hand has no showdown value and no relevant blockers to villain's value range (you don't block AJ, AQ, sets, or two pair). A key principle when facing all-ins is evaluating whether you block villain's bluff combinations. Here, your clubs actually block some of the flush draws villain might turn into bluffs, meaning their remaining range is more value-heavy. Without blockers to value hands, folding is the disciplined play.",
+    "category": "Facing All-In"
+  },
+  {
+    "id": "river_26",
+    "hand": "K♥J♥",
+    "position": "BB",
+    "board": [
+      "J♦",
+      "8♣",
+      "4♠",
+      "T♥",
+      "J♠"
+    ],
+    "street": "RIVER",
+    "potSize": "26BB",
+    "stackSize": "74BB",
+    "villainAction": "Villain bets 13BB (50%)",
+    "options": [
+      "Fold",
+      "Call 13BB",
+      "Raise to 40BB"
+    ],
+    "correct": "Raise to 40BB",
+    "explanation": "The river tripped the jacks, giving you trip jacks with a king kicker—an extremely strong hand. Villain's 50% pot bet likely represents a ten (completing a straight draw), an overpair, or a weaker jack. This is a textbook value check-raise because villain's medium-strong hands are committed after betting and will struggle to fold to a raise. By raising to 40BB (roughly 3x), you extract maximum value from overpairs like QQ, AA and weaker trips like J9, JQ. The raise size is important—too small and you don't get enough value, too large and you only get called by full houses. A 3x raise hits the sweet spot of appearing like it could be a bluff while still building the pot with your strong hand.",
+    "category": "River Check-Raise"
+  },
+  {
+    "id": "river_27",
+    "hand": "9♦8♦",
+    "position": "CO",
+    "board": [
+      "Q♣",
+      "7♠",
+      "3♦",
+      "6♦",
+      "A♠"
+    ],
+    "street": "RIVER",
+    "potSize": "20BB",
+    "stackSize": "80BB",
+    "villainAction": "Villain checks",
+    "options": [
+      "Check",
+      "Bet 6BB (30%)",
+      "Bet 15BB (75%)"
+    ],
+    "correct": "Bet 6BB (30%)",
+    "explanation": "You hold a straight (5-9) after the turn completed your draw, but the river ace is a dangerous card that improves villain's range significantly. A blocking bet of 30% pot is the ideal play for three reasons: first, it extracts thin value from hands like Qx and pocket pairs that will call a small bet; second, it controls the pot so you don't overcommit if villain has rivered a better hand like two pair with an ace; third, it prevents villain from making a large bluff bet if you check. This is the core principle of blocking bets—by betting small, you define the price of seeing a showdown instead of facing an uncomfortable decision against a larger bet. If villain raises your blocking bet, you can re-evaluate based on their tendencies.",
+    "category": "Blocking Bets"
   }
 ]
