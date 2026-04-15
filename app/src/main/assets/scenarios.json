@@ -188,8 +188,8 @@
     "position": "BTN",
     "board": [
       "Q♠",
-      "7♠",
-      "2♦"
+      "7♦",
+      "2♣"
     ],
     "street": "FLOP",
     "potSize": "15BB",
@@ -325,7 +325,7 @@
     "board": [
       "8♠",
       "7♠",
-      "6♠"
+      "6♦"
     ],
     "street": "FLOP",
     "potSize": "16BB",
@@ -395,7 +395,7 @@
       "8♠",
       "6♠",
       "2♥",
-      "K♠"
+      "K♦"
     ],
     "street": "TURN",
     "potSize": "22BB",
@@ -527,7 +527,7 @@
       "Raise to 38BB"
     ],
     "correct": "Call",
-    "explanation": "You have top pair with a good kicker plus a backdoor flush draw that arrived. The T pairing on the turn is concerning because villain could have TT for a full house or AT for a better two pair. However, calling is correct because: (1) your hand beats a significant portion of villain's value range (AK, AQ are the only Ax hands that beat you, and AT specifically), (2) folding top pair strong kicker to a single turn barrel is too tight, (3) you have position to control the river action, and (4) villain could be barreling with draws (KQ for a gutshot, spade draws) or worse aces. Raising turns your hand into a bluff since better hands call and worse hands fold.",
+    "explanation": "You have top pair with a good kicker. The T pairing on the turn is concerning because villain could have TT for a full house or AT for a better two pair. However, calling is correct because: (1) your hand beats a significant portion of villain's value range (AK, AQ are the only Ax hands that beat you, and AT specifically), (2) folding top pair strong kicker to a single turn barrel is too tight, (3) you have position to control the river action, and (4) villain could be barreling with worse aces or missed spade draws. Raising turns your hand into a bluff since better hands call and worse hands fold.",
     "category": "Drawing Odds"
   },
   {
@@ -1965,7 +1965,7 @@
       "Bet 15BB (100%)"
     ],
     "correct": "Bet 10BB (66%)",
-    "explanation": "The board pairing with the 4♥ is a great card for your overpair. It reduces the likelihood villain has trips and your Queens are now even further ahead of villain's range of jacks, eights, and draws. Bet 66% pot to extract value and deny equity from hands like T9, 97, and flush draws. The paired board actually improves your relative hand strength since it removes a card that could have made two pair for villain.",
+    "explanation": "The board pairing with the 4♥ is a great card for your overpair. It reduces the likelihood villain has trips and your Queens are now even further ahead of villain's range of jacks, eights, and straight draws. Bet 66% pot to extract value and deny equity from hands like T9 and 97 gutshots. The paired board actually improves your relative hand strength since it removes a card that could have made two pair for villain.",
     "category": "Value Betting"
   },
   {
@@ -2012,7 +2012,7 @@
       "Raise to 28BB"
     ],
     "correct": "Raise to 28BB",
-    "explanation": "The Q♦ turn gives you a straight and a backdoor flush draw to the diamond. With the current nuts, raising is correct because the board is extremely wet with many draws that will call. A raise to 28BB builds the pot while you have the best hand and protects against the many redraws available (any 7, T, J, or paired board could beat you on the river). Slow playing on this coordinated texture would be a mistake since so many river cards can kill your action or your hand.",
+    "explanation": "The Q♦ turn gives you the nut straight (broadway). With the current nuts, raising is correct because the board is extremely wet with many draws that will call. A raise to 28BB builds the pot while you have the best hand and protects against the many redraws available (any 7, T, J, or paired board could beat you on the river). Slow playing on this coordinated texture would be a mistake since so many river cards can kill your action or your hand.",
     "category": "Value Betting"
   },
   {
@@ -2129,7 +2129,7 @@
       "Raise to 26BB"
     ],
     "correct": "Raise to 26BB",
-    "explanation": "You have an open-ended straight draw needing any four or nine for the nuts, and the A♥ turn gives you a backdoor flush draw as well. This is an excellent check-raise spot because the ace is a great card to represent since it hits your defending range from the big blind (Ax hands). The check-raise has strong fold equity against villain's middle-pair type hands, and when called you still have 8+ clean outs. This play also balances your check-raising range with the Ax hands you would play similarly.",
+    "explanation": "You have an open-ended straight draw needing any four or nine for the nuts. This is an excellent check-raise spot because the ace is a great card to represent since it hits your defending range from the big blind (Ax hands). The check-raise has strong fold equity against villain's middle-pair type hands, and when called you still have 8 clean outs. This play also balances your check-raising range with the Ax hands you would play similarly.",
     "category": "Check-Raise Turn"
   },
   {
@@ -2614,7 +2614,7 @@
     "board": [
       "7♣",
       "5♣",
-      "2♥",
+      "2♣",
       "4♦",
       "8♣"
     ],
