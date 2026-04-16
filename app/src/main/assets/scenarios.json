@@ -624,9 +624,9 @@
       "Call",
       "Raise All-In"
     ],
-    "correct": "Raise All-In",
-    "explanation": "You have a set of eights and villain suddenly leads the river for a large sizing after the Ace hits. This is a clear raise-all-in spot because: (1) your set is the second nuts (only AA beats you, and that is unlikely since you've been betting and villain has been calling), (2) villain's river lead range after check-calling twice is heavily weighted toward hands like AQ, A5, A2, and two pair that now want to build the pot after hitting the Ace, (3) villain may interpret your raise as a bluff since the A is a common bluff card, (4) raising to 48BB into a 87BB pot gives villain excellent odds they cannot refuse with any strong made hand.",
-    "category": "Thin Value"
+    "correct": "Call",
+    "explanation": "You have a set of eights but this board is more dangerous than it first looks. The wheel straight (any 3-4 makes A-2-3-4-5) is the actual nuts and sits squarely in BB's check-call range. Trip aces (any AA, AQ, A5, A2 with an A on river giving two pair) and trip queens (QQ) also beat you. Villain's surprise lead after check-calling twice is a meaningful polarization signal — they often have a hand they want to value bet, not bluff. Calling is correct because: (1) you still beat the weaker portion of the value range (Ax two pair) and pick off a thin bluff range, (2) jamming only gets called by the hands that beat you (wheel, set+, trip A) and folds out worse, (3) at 48BB behind into an 87BB pot you have a clean call price without committing more on a board where you are not the nuts.",
+    "category": "Bluff Catching"
   },
   {
     "id": "river_5",
@@ -2012,7 +2012,7 @@
       "Raise to 28BB"
     ],
     "correct": "Raise to 28BB",
-    "explanation": "The Q♦ turn gives you the nut straight (broadway). With the current nuts, raising is correct because the board is extremely wet with many draws that will call. A raise to 28BB builds the pot while you have the best hand and protects against the many redraws available (any 7, T, J, or paired board could beat you on the river). Slow playing on this coordinated texture would be a mistake since so many river cards can kill your action or your hand.",
+    "explanation": "The Q♦ turn completes your queen-high straight (8-9-T-J-Q), the current nuts on this board (Broadway is impossible — it would require T, J and an Ace, but no Ace is on the board). With the nuts, raising is correct because the board is extremely wet with many draws that will call. A raise to 28BB builds the pot while you have the best hand and protects against redraws — the river bringing another T, J, or 9/8/2/Q (board pair) gives villain potential boats and counterfeits some of your value. Slow playing on this coordinated texture would be a mistake since so many river cards can kill your action.",
     "category": "Value Betting"
   },
   {
@@ -2628,8 +2628,8 @@
       "Bet 30BB (75%)",
       "All-In (80BB)"
     ],
-    "correct": "All-In (80BB)",
-    "explanation": "The river completed the flush and the straight, making this a highly polarizing board. With the A♣ giving you the nut flush, an overbet shove is the optimal play. Overbetting works best when your range is highly polarized—you either have the nuts or nothing. Since you hold the nut flush, you're firmly on the value side. Villain's medium-strength hands (overpairs, two pair, sets without a club) are in a terrible spot against an overbet because they block very few of your value combos. The 200% pot overbet maximizes your expected value because hands like sets and straights without the flush will often feel priced in to call.",
+    "correct": "Bet 30BB (75%)",
+    "explanation": "The river puts a fourth club on board. You have the nut flush (A♣ + four board clubs), but you are NOT quite the absolute nuts — a straight flush is possible (e.g., 6♣9♣ makes 5♣-6♣-7♣-8♣-9♣). Combinatorially the straight flush is rare, but it's enough that an all-in overbet is too thin: you fold out every worse club and only get called by hands that chop or beat you. A 75% pot value bet is the sweet spot — it gets called by the ace-high one-card flushes, sets, and two pair combos that contain a single club, while leaving room to fold to a raise. The shove would be correct on a non-straight-flush-possible flush board, but here giving yourself a clean fold to a raise is worth the smaller sizing.",
     "category": "Overbets"
   },
   {
@@ -2652,8 +2652,8 @@
       "Bet 9BB (33%)",
       "Bet 20BB (75%)"
     ],
-    "correct": "Bet 9BB (33%)",
-    "explanation": "You rivered a straight (9-K) but the board is somewhat coordinated with potential for better straights (AT has the nuts with Broadway). A thin value bet of 33% pot is ideal here because it targets the weaker portion of villain's range—hands like Qx, pocket pairs, and weak kings that will call a small bet. Larger sizing would fold out the hands you want to call while only getting action from hands that beat you (AT, KQ). Thin value betting is about recognizing when your hand is good often enough to profit from a bet, but not strong enough to withstand a raise—if villain raises, you can comfortably fold.",
+    "correct": "Bet 20BB (75%)",
+    "explanation": "You rivered the nut straight (9-T-J-Q-K). Broadway (T-J-Q-K-A) is impossible on this board because it would require a Jack on the board in addition to your T and J — no one can have it. Your 9-high-to-K straight is the absolute best hand. With the nuts in position after villain checks, a polarized 75% pot value bet is ideal: villain's range still contains many Kx, Qx, and second-pair hands that happily call one big bet on a board where many strong but non-nut holdings exist. Betting small (33%) leaves value on the table when you are guaranteed to have the best hand — sizing up is correct whenever you hold the unbeatable nuts in position.",
     "category": "Thin Value"
   },
   {

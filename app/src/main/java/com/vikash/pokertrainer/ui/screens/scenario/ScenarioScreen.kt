@@ -311,20 +311,39 @@ fun ScenarioScreen(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
-                        // Street label
-                        Box(
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(Color.Black.copy(alpha = 0.3f))
-                                .padding(horizontal = 12.dp, vertical = 4.dp)
+                        // Street label + scenario ID (so users can report bugs by ID)
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            Text(
-                                text = scenario.street.name,
-                                color = GoldAccent,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold,
-                                letterSpacing = 1.5.sp
-                            )
+                            Box(
+                                modifier = Modifier
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .background(Color.Black.copy(alpha = 0.3f))
+                                    .padding(horizontal = 12.dp, vertical = 4.dp)
+                            ) {
+                                Text(
+                                    text = scenario.street.name,
+                                    color = GoldAccent,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    letterSpacing = 1.5.sp
+                                )
+                            }
+                            Box(
+                                modifier = Modifier
+                                    .clip(RoundedCornerShape(8.dp))
+                                    .background(Color.Black.copy(alpha = 0.3f))
+                                    .padding(horizontal = 10.dp, vertical = 4.dp)
+                            ) {
+                                Text(
+                                    text = "ID  ${scenario.id}",
+                                    color = pokerColors.textSecondary,
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    letterSpacing = 0.5.sp
+                                )
+                            }
                         }
 
                         // Community cards (board)
@@ -504,15 +523,28 @@ fun ScenarioScreen(
                                 Spacer(modifier = Modifier.height(12.dp))
                             }
 
-                            // Explanation
-                            Text(
-                                text = scenario.explanation,
-                                color = pokerColors.textSecondary,
-                                fontSize = 14.sp,
-                                lineHeight = 20.sp,
-                                textAlign = TextAlign.Start,
-                                modifier = Modifier.fillMaxWidth()
-                            )
+                            // Explanation (selectable so users can copy text + ID
+                            // when reporting a bug)
+                            androidx.compose.foundation.text.selection.SelectionContainer {
+                                Column(modifier = Modifier.fillMaxWidth()) {
+                                    Text(
+                                        text = scenario.explanation,
+                                        color = pokerColors.textSecondary,
+                                        fontSize = 14.sp,
+                                        lineHeight = 20.sp,
+                                        textAlign = TextAlign.Start,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
+                                    Spacer(modifier = Modifier.height(10.dp))
+                                    Text(
+                                        text = "Scenario ID: ${scenario.id}",
+                                        color = pokerColors.textMuted,
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        modifier = Modifier.fillMaxWidth()
+                                    )
+                                }
+                            }
 
                             Spacer(modifier = Modifier.height(16.dp))
 
