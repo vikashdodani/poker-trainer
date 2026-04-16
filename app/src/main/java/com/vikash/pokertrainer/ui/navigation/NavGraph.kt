@@ -16,6 +16,7 @@ import com.vikash.pokertrainer.viewmodel.GtoViewModel
 import com.vikash.pokertrainer.viewmodel.PlayerTypeViewModel
 import com.vikash.pokertrainer.viewmodel.ScenarioViewModel
 import com.vikash.pokertrainer.viewmodel.StatsViewModel
+import com.vikash.pokertrainer.viewmodel.ThemeViewModel
 
 sealed class Screen(val route: String) {
     data object Home : Screen("home")
@@ -26,9 +27,13 @@ sealed class Screen(val route: String) {
 }
 
 @Composable
-fun PokerNavGraph(navController: NavHostController) {
+fun PokerNavGraph(
+    navController: NavHostController,
+    themeViewModel: ThemeViewModel
+) {
     val statsViewModel: StatsViewModel = viewModel()
     val statsState by statsViewModel.uiState.collectAsState()
+    val isDarkMode by themeViewModel.isDarkMode.collectAsState()
 
     NavHost(
         navController = navController,
@@ -38,6 +43,8 @@ fun PokerNavGraph(navController: NavHostController) {
             HomeScreen(
                 totalAttempted = statsState.totalAttempted,
                 accuracy = statsState.overallAccuracy,
+                isDarkMode = isDarkMode,
+                onToggleTheme = { themeViewModel.toggleTheme() },
                 onNavigateToScenario = { navController.navigate(Screen.Scenario.route) },
                 onNavigateToGto = { navController.navigate(Screen.GtoChart.route) },
                 onNavigateToPlayerType = { navController.navigate(Screen.PlayerType.route) },

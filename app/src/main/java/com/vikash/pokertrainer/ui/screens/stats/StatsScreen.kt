@@ -53,16 +53,11 @@ import com.vikash.pokertrainer.ui.theme.BluffRed
 import com.vikash.pokertrainer.ui.theme.CheckBlue
 import com.vikash.pokertrainer.ui.theme.ChipGreen
 import com.vikash.pokertrainer.ui.theme.CorrectGreen
-import com.vikash.pokertrainer.ui.theme.DarkBackground
-import com.vikash.pokertrainer.ui.theme.DarkCard
-import com.vikash.pokertrainer.ui.theme.DarkSurface
 import com.vikash.pokertrainer.ui.theme.GoldAccent
 import com.vikash.pokertrainer.ui.theme.IncorrectRed
 import com.vikash.pokertrainer.ui.theme.MixedColor
 import com.vikash.pokertrainer.ui.theme.PokerTableGreen
-import com.vikash.pokertrainer.ui.theme.TextMuted
-import com.vikash.pokertrainer.ui.theme.TextPrimary
-import com.vikash.pokertrainer.ui.theme.TextSecondary
+import com.vikash.pokertrainer.ui.theme.pokerColors
 import com.vikash.pokertrainer.viewmodel.StatsViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -77,7 +72,7 @@ fun StatsScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DarkBackground)
+            .background(pokerColors.background)
     ) {
         // Top bar
         TopAppBar(
@@ -97,9 +92,9 @@ fun StatsScreen(
                 }
             },
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = DarkSurface,
-                titleContentColor = TextPrimary,
-                navigationIconContentColor = TextPrimary
+                containerColor = pokerColors.surface,
+                titleContentColor = pokerColors.textPrimary,
+                navigationIconContentColor = pokerColors.textPrimary
             )
         )
 
@@ -114,7 +109,7 @@ fun StatsScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(containerColor = DarkSurface),
+                    colors = CardDefaults.cardColors(containerColor = pokerColors.surface),
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                 ) {
                     Row(
@@ -154,7 +149,7 @@ fun StatsScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = DarkSurface)
+                    colors = CardDefaults.cardColors(containerColor = pokerColors.surface)
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
@@ -193,7 +188,7 @@ fun StatsScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = DarkSurface)
+                    colors = CardDefaults.cardColors(containerColor = pokerColors.surface)
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
                         StatBar(
@@ -232,7 +227,7 @@ fun StatsScreen(
                             Spacer(modifier = Modifier.width(10.dp))
                             Text(
                                 text = weakness,
-                                color = TextPrimary,
+                                color = pokerColors.textPrimary,
                                 fontSize = 14.sp
                             )
                         }
@@ -267,7 +262,7 @@ fun StatsScreen(
                             Spacer(modifier = Modifier.width(10.dp))
                             Text(
                                 text = strength,
-                                color = TextPrimary,
+                                color = pokerColors.textPrimary,
                                 fontSize = 14.sp
                             )
                         }
@@ -289,7 +284,7 @@ fun StatsScreen(
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         shape = RoundedCornerShape(10.dp),
-                        colors = CardDefaults.cardColors(containerColor = DarkSurface)
+                        colors = CardDefaults.cardColors(containerColor = pokerColors.surface)
                     ) {
                         Column(modifier = Modifier.padding(12.dp)) {
                             Row(
@@ -299,7 +294,7 @@ fun StatsScreen(
                             ) {
                                 Text(
                                     text = stat.category,
-                                    color = TextPrimary,
+                                    color = pokerColors.textPrimary,
                                     fontWeight = FontWeight.Medium,
                                     fontSize = 14.sp,
                                     modifier = Modifier.weight(1f)
@@ -356,9 +351,9 @@ fun StatsScreen(
     if (showResetDialog) {
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
-            containerColor = DarkSurface,
-            titleContentColor = TextPrimary,
-            textContentColor = TextSecondary,
+            containerColor = pokerColors.surface,
+            titleContentColor = pokerColors.textPrimary,
+            textContentColor = pokerColors.textSecondary,
             title = {
                 Text(
                     text = "Reset Progress?",
@@ -385,7 +380,7 @@ fun StatsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showResetDialog = false }) {
-                    Text("Cancel", color = TextSecondary)
+                    Text("Cancel", color = pokerColors.textSecondary)
                 }
             }
         )
@@ -409,7 +404,7 @@ private fun OverviewStatItem(
         Text(
             text = label,
             fontSize = 12.sp,
-            color = TextSecondary
+            color = pokerColors.textSecondary
         )
     }
 }
@@ -420,7 +415,7 @@ private fun VerticalDivider() {
         modifier = Modifier
             .width(1.dp)
             .height(40.dp)
-            .background(TextMuted.copy(alpha = 0.3f))
+            .background(pokerColors.textMuted.copy(alpha = 0.3f))
     )
 }
 
@@ -428,7 +423,7 @@ private fun VerticalDivider() {
 private fun SectionHeader(title: String) {
     Text(
         text = title,
-        color = TextPrimary,
+        color = pokerColors.textPrimary,
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
         modifier = Modifier.padding(top = 4.dp, bottom = 2.dp)
@@ -439,12 +434,13 @@ private fun SectionHeader(title: String) {
  * Returns a color based on accuracy percentage:
  * red for low, orange for moderate, green for good, bright green for great.
  */
+@Composable
 private fun accuracyColor(accuracy: Double): Color {
     return when {
         accuracy >= 80 -> CorrectGreen
         accuracy >= 60 -> ChipGreen
         accuracy >= 40 -> MixedColor
         accuracy > 0 -> IncorrectRed
-        else -> TextMuted
+        else -> pokerColors.textMuted
     }
 }

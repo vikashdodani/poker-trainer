@@ -20,7 +20,9 @@ data class PlayerTypeUiState(
     val currentIndex: Int = 0,
     val totalProfiles: Int = 0,
     val sessionCorrect: Int = 0,
-    val sessionTotal: Int = 0
+    val sessionTotal: Int = 0,
+    /** Full list of profiles (stable, unshuffled) for Browse mode. */
+    val allProfiles: List<PlayerProfile> = emptyList()
 )
 
 class PlayerTypeViewModel(application: Application) : AndroidViewModel(application) {
@@ -32,10 +34,12 @@ class PlayerTypeViewModel(application: Application) : AndroidViewModel(applicati
 
     fun loadProfiles() {
         val context = getApplication<Application>()
-        profiles = repository.getPlayerProfiles(context).shuffled()
+        val allProfiles = repository.getPlayerProfiles(context)
+        profiles = allProfiles.shuffled()
         _uiState.value = PlayerTypeUiState(
             currentProfile = profiles.firstOrNull(),
-            totalProfiles = profiles.size
+            totalProfiles = profiles.size,
+            allProfiles = allProfiles
         )
     }
 

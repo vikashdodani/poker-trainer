@@ -53,16 +53,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vikash.pokertrainer.ui.theme.CallColor
-import com.vikash.pokertrainer.ui.theme.DarkBackground
-import com.vikash.pokertrainer.ui.theme.DarkCard
-import com.vikash.pokertrainer.ui.theme.DarkSurface
 import com.vikash.pokertrainer.ui.theme.FoldColor
 import com.vikash.pokertrainer.ui.theme.GoldAccent
 import com.vikash.pokertrainer.ui.theme.MixedColor
 import com.vikash.pokertrainer.ui.theme.RaiseColor
-import com.vikash.pokertrainer.ui.theme.TextMuted
-import com.vikash.pokertrainer.ui.theme.TextPrimary
-import com.vikash.pokertrainer.ui.theme.TextSecondary
+import com.vikash.pokertrainer.ui.theme.pokerColors
 import com.vikash.pokertrainer.viewmodel.GtoHandInfo
 import com.vikash.pokertrainer.viewmodel.GtoViewModel
 
@@ -78,7 +73,7 @@ fun GtoChartScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(DarkBackground)
+            .background(pokerColors.background)
     ) {
         Column(
             modifier = Modifier
@@ -130,8 +125,8 @@ fun GtoChartScreen(
             ModalBottomSheet(
                 onDismissRequest = { viewModel.dismissHandDetail() },
                 sheetState = sheetState,
-                containerColor = DarkSurface,
-                contentColor = TextPrimary
+                containerColor = pokerColors.surface,
+                contentColor = pokerColors.textPrimary
             ) {
                 HandDetailContent(handInfo = uiState.selectedHand!!)
             }
@@ -150,12 +145,12 @@ private fun TopBar(onBack: () -> Unit) {
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
-                .background(DarkSurface)
+                .background(pokerColors.surface)
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = "Back",
-                tint = TextPrimary,
+                tint = pokerColors.textPrimary,
                 modifier = Modifier.size(22.dp)
             )
         }
@@ -166,7 +161,7 @@ private fun TopBar(onBack: () -> Unit) {
             text = "GTO Preflop Charts",
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
-            color = TextPrimary
+            color = pokerColors.textPrimary
         )
     }
 }
@@ -185,8 +180,8 @@ private fun PositionSelector(
     ) {
         positions.forEach { position ->
             val isSelected = position == selectedPosition
-            val bgColor = if (isSelected) GoldAccent else DarkSurface
-            val textColor = if (isSelected) DarkBackground else TextSecondary
+            val bgColor = if (isSelected) GoldAccent else pokerColors.surface
+            val textColor = if (isSelected) pokerColors.background else pokerColors.textSecondary
 
             Box(
                 modifier = Modifier
@@ -217,14 +212,14 @@ private fun GameTypeToggle(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(12.dp))
-            .background(DarkSurface)
+            .background(pokerColors.surface)
             .padding(4.dp),
         horizontalArrangement = Arrangement.spacedBy(0.dp)
     ) {
         types.forEach { type ->
             val isSelected = type == selectedType
-            val bgColor = if (isSelected) DarkCard else Color.Transparent
-            val textColor = if (isSelected) TextPrimary else TextMuted
+            val bgColor = if (isSelected) pokerColors.surfaceHigh else Color.Transparent
+            val textColor = if (isSelected) pokerColors.textPrimary else pokerColors.textMuted
 
             Box(
                 modifier = Modifier
@@ -257,12 +252,12 @@ private fun HandGrid(
     val availableWidth = screenWidth - gridPadding
     val headerWidth = 20.dp
     val cellSize = (availableWidth - headerWidth) / 13
-    val gridBorderColor = DarkBackground
+    val gridBorderColor = pokerColors.background
 
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = DarkSurface),
+        colors = CardDefaults.cardColors(containerColor = pokerColors.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
@@ -283,7 +278,7 @@ private fun HandGrid(
                             text = rank,
                             fontSize = 9.sp,
                             fontWeight = FontWeight.Bold,
-                            color = TextMuted,
+                            color = pokerColors.textMuted,
                             textAlign = TextAlign.Center
                         )
                     }
@@ -302,7 +297,7 @@ private fun HandGrid(
                             text = rowRank,
                             fontSize = 9.sp,
                             fontWeight = FontWeight.Bold,
-                            color = TextMuted,
+                            color = pokerColors.textMuted,
                             textAlign = TextAlign.Center
                         )
                     }
@@ -344,7 +339,7 @@ private fun HandCell(
     val borderColor = if (isDiagonal) {
         GoldAccent.copy(alpha = 0.5f)
     } else {
-        DarkBackground.copy(alpha = 0.6f)
+        pokerColors.background.copy(alpha = 0.6f)
     }
 
     Box(
@@ -378,7 +373,7 @@ private fun Legend() {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = DarkSurface),
+        colors = CardDefaults.cardColors(containerColor = pokerColors.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
@@ -408,7 +403,7 @@ private fun LegendItem(color: Color, label: String) {
         Text(
             text = label,
             fontSize = 12.sp,
-            color = TextSecondary,
+            color = pokerColors.textSecondary,
             fontWeight = FontWeight.Medium
         )
     }
@@ -440,7 +435,7 @@ private fun HandDetailContent(handInfo: GtoHandInfo) {
                 text = handInfo.hand,
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold,
-                color = TextPrimary
+                color = pokerColors.textPrimary
             )
 
             // Action badge
@@ -476,7 +471,7 @@ private fun HandDetailContent(handInfo: GtoHandInfo) {
         Text(
             text = handType,
             fontSize = 14.sp,
-            color = TextMuted,
+            color = pokerColors.textMuted,
             fontWeight = FontWeight.Medium
         )
 
@@ -486,7 +481,7 @@ private fun HandDetailContent(handInfo: GtoHandInfo) {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = DarkCard)
+            colors = CardDefaults.cardColors(containerColor = pokerColors.surfaceHigh)
         ) {
             Row(
                 modifier = Modifier.padding(16.dp),
@@ -502,7 +497,7 @@ private fun HandDetailContent(handInfo: GtoHandInfo) {
                 Text(
                     text = handInfo.explanation,
                     fontSize = 14.sp,
-                    color = TextSecondary,
+                    color = pokerColors.textSecondary,
                     lineHeight = 20.sp
                 )
             }

@@ -62,19 +62,14 @@ import com.vikash.pokertrainer.ui.components.PositionBadge
 import com.vikash.pokertrainer.ui.theme.BluffRed
 import com.vikash.pokertrainer.ui.theme.CheckBlue
 import com.vikash.pokertrainer.ui.theme.CorrectGreen
-import com.vikash.pokertrainer.ui.theme.DarkBackground
-import com.vikash.pokertrainer.ui.theme.DarkCard
-import com.vikash.pokertrainer.ui.theme.DarkSurface
 import com.vikash.pokertrainer.ui.theme.FoldGray
 import com.vikash.pokertrainer.ui.theme.GoldAccent
 import com.vikash.pokertrainer.ui.theme.IncorrectRed
 import com.vikash.pokertrainer.ui.theme.PokerDarkGreen
 import com.vikash.pokertrainer.ui.theme.PokerFelt
 import com.vikash.pokertrainer.ui.theme.PokerTableGreen
-import com.vikash.pokertrainer.ui.theme.TextMuted
-import com.vikash.pokertrainer.ui.theme.TextPrimary
-import com.vikash.pokertrainer.ui.theme.TextSecondary
 import com.vikash.pokertrainer.ui.theme.ValueGreen
+import com.vikash.pokertrainer.ui.theme.pokerColors
 import com.vikash.pokertrainer.viewmodel.ScenarioViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
@@ -115,7 +110,7 @@ fun ScenarioScreen(
                             modifier = Modifier
                                 .padding(end = 12.dp)
                                 .clip(RoundedCornerShape(16.dp))
-                                .background(DarkCard)
+                                .background(pokerColors.surfaceHigh)
                                 .padding(horizontal = 12.dp, vertical = 6.dp)
                         ) {
                             Text(
@@ -130,13 +125,13 @@ fun ScenarioScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = DarkBackground,
-                    titleContentColor = TextPrimary,
-                    navigationIconContentColor = TextPrimary
+                    containerColor = pokerColors.background,
+                    titleContentColor = pokerColors.textPrimary,
+                    navigationIconContentColor = pokerColors.textPrimary
                 )
             )
         },
-        containerColor = DarkBackground
+        containerColor = pokerColors.background
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -168,9 +163,9 @@ fun ScenarioScreen(
                         },
                         colors = FilterChipDefaults.filterChipColors(
                             selectedContainerColor = PokerTableGreen,
-                            selectedLabelColor = TextPrimary,
-                            containerColor = DarkSurface,
-                            labelColor = TextSecondary
+                            selectedLabelColor = pokerColors.textPrimary,
+                            containerColor = pokerColors.surface,
+                            labelColor = pokerColors.textSecondary
                         ),
                         border = FilterChipDefaults.filterChipBorder(
                             borderColor = Color.Transparent,
@@ -196,7 +191,7 @@ fun ScenarioScreen(
                             Brush.horizontalGradient(
                                 colors = listOf(
                                     getPositionColor(scenario.position).copy(alpha = 0.25f),
-                                    DarkSurface
+                                    pokerColors.surface
                                 )
                             )
                         )
@@ -231,12 +226,12 @@ fun ScenarioScreen(
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
                             text = "Your Position",
-                            color = TextMuted,
+                            color = pokerColors.textMuted,
                             fontSize = 11.sp
                         )
                         Text(
                             text = getPositionFullName(scenario.position),
-                            color = TextPrimary,
+                            color = pokerColors.textPrimary,
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold
                         )
@@ -245,7 +240,7 @@ fun ScenarioScreen(
                     // Pot + Stack + Progress
                     Column(horizontalAlignment = Alignment.End) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(text = "Pot ", color = TextMuted, fontSize = 11.sp)
+                            Text(text = "Pot ", color = pokerColors.textMuted, fontSize = 11.sp)
                             Text(
                                 text = scenario.potSize,
                                 color = GoldAccent,
@@ -254,17 +249,17 @@ fun ScenarioScreen(
                             )
                         }
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(text = "Stack ", color = TextMuted, fontSize = 11.sp)
+                            Text(text = "Stack ", color = pokerColors.textMuted, fontSize = 11.sp)
                             Text(
                                 text = scenario.stackSize,
-                                color = TextPrimary,
+                                color = pokerColors.textPrimary,
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.SemiBold
                             )
                         }
                         Text(
                             text = "${uiState.currentIndex + 1}/${uiState.totalScenarios}",
-                            color = TextMuted,
+                            color = pokerColors.textMuted,
                             fontSize = 11.sp
                         )
                     }
@@ -278,7 +273,7 @@ fun ScenarioScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
                         .clip(RoundedCornerShape(10.dp))
-                        .background(DarkSurface.copy(alpha = 0.7f))
+                        .background(pokerColors.surface.copy(alpha = 0.7f))
                         .padding(horizontal = 16.dp, vertical = 10.dp),
                     contentAlignment = Alignment.Center
                 ) {
@@ -339,7 +334,7 @@ fun ScenarioScreen(
                             // Preflop - show placeholder
                             Text(
                                 text = "No community cards",
-                                color = TextSecondary.copy(alpha = 0.6f),
+                                color = pokerColors.textSecondary.copy(alpha = 0.6f),
                                 fontSize = 13.sp
                             )
                         }
@@ -355,7 +350,7 @@ fun ScenarioScreen(
                         // Player's hand label
                         Text(
                             text = "Your Hand",
-                            color = TextSecondary,
+                            color = pokerColors.textSecondary,
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Medium
                         )
@@ -384,7 +379,7 @@ fun ScenarioScreen(
                 ) {
                     Text(
                         text = "What's your play?",
-                        color = TextPrimary,
+                        color = pokerColors.textPrimary,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold,
                         modifier = Modifier.padding(bottom = 4.dp)
@@ -447,7 +442,7 @@ fun ScenarioScreen(
                             .padding(horizontal = 16.dp)
                             .shadow(8.dp, RoundedCornerShape(16.dp))
                             .clip(RoundedCornerShape(16.dp))
-                            .background(DarkSurface)
+                            .background(pokerColors.surface)
                             .border(
                                 width = 2.dp,
                                 color = if (uiState.isCorrect) CorrectGreen else IncorrectRed,
@@ -496,7 +491,7 @@ fun ScenarioScreen(
                                 ) {
                                     Text(
                                         text = "Correct answer: ",
-                                        color = TextSecondary,
+                                        color = pokerColors.textSecondary,
                                         fontSize = 14.sp
                                     )
                                     Text(
@@ -512,7 +507,7 @@ fun ScenarioScreen(
                             // Explanation
                             Text(
                                 text = scenario.explanation,
-                                color = TextSecondary,
+                                color = pokerColors.textSecondary,
                                 fontSize = 14.sp,
                                 lineHeight = 20.sp,
                                 textAlign = TextAlign.Start,
@@ -537,7 +532,7 @@ fun ScenarioScreen(
                                 ) {
                                     Text(
                                         text = "Next Scenario",
-                                        color = TextPrimary,
+                                        color = pokerColors.textPrimary,
                                         fontSize = 16.sp,
                                         fontWeight = FontWeight.Bold
                                     )
@@ -545,7 +540,7 @@ fun ScenarioScreen(
                                     Icon(
                                         imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                                         contentDescription = "Next",
-                                        tint = TextPrimary,
+                                        tint = pokerColors.textPrimary,
                                         modifier = Modifier.size(20.dp)
                                     )
                                 }
@@ -565,7 +560,7 @@ fun ScenarioScreen(
                 ) {
                     Text(
                         text = "No scenarios available for this filter.",
-                        color = TextMuted,
+                        color = pokerColors.textMuted,
                         fontSize = 16.sp,
                         textAlign = TextAlign.Center
                     )

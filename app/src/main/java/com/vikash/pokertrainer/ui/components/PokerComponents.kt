@@ -39,14 +39,11 @@ import com.vikash.pokertrainer.ui.theme.CardWhite
 import com.vikash.pokertrainer.ui.theme.ChipBlue
 import com.vikash.pokertrainer.ui.theme.ChipRed
 import com.vikash.pokertrainer.ui.theme.CorrectGreen
-import com.vikash.pokertrainer.ui.theme.DarkCard
 import com.vikash.pokertrainer.ui.theme.GoldAccent
 import com.vikash.pokertrainer.ui.theme.IncorrectRed
 import com.vikash.pokertrainer.ui.theme.PokerDarkGreen
 import com.vikash.pokertrainer.ui.theme.PokerTableGreen
-import com.vikash.pokertrainer.ui.theme.TextMuted
-import com.vikash.pokertrainer.ui.theme.TextPrimary
-import com.vikash.pokertrainer.ui.theme.TextSecondary
+import com.vikash.pokertrainer.ui.theme.pokerColors
 
 /**
  * Renders a single playing card with proper suit coloring.
@@ -204,7 +201,7 @@ fun ActionButton(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
-            contentColor = TextPrimary
+            contentColor = pokerColors.textPrimary
         ),
         shape = RoundedCornerShape(12.dp),
         modifier = modifier
@@ -271,12 +268,12 @@ fun StatBar(
         ) {
             Text(
                 text = label,
-                color = TextSecondary,
+                color = pokerColors.textSecondary,
                 fontSize = 13.sp
             )
             Text(
                 text = "${value.toInt()}",
-                color = TextPrimary,
+                color = pokerColors.textPrimary,
                 fontSize = 13.sp,
                 fontWeight = FontWeight.SemiBold
             )
@@ -288,7 +285,7 @@ fun StatBar(
                 .height(8.dp)
                 .padding(top = 4.dp)
                 .clip(RoundedCornerShape(4.dp))
-                .background(DarkCard)
+                .background(pokerColors.surfaceHigh)
         ) {
             Box(
                 modifier = Modifier
@@ -313,13 +310,13 @@ fun PositionBadge(position: String) {
         "CO" -> PokerTableGreen
         "HJ" -> PokerTableGreen
         "LJ" -> PokerDarkGreen
-        "UTG", "UTG+1", "UTG+2" -> TextMuted
-        else -> TextMuted
+        "UTG", "UTG+1", "UTG+2" -> pokerColors.textMuted
+        else -> pokerColors.textMuted
     }
 
     val textColor = when (position.uppercase()) {
         "BTN" -> CardBlack
-        else -> TextPrimary
+        else -> pokerColors.textPrimary
     }
 
     Box(
