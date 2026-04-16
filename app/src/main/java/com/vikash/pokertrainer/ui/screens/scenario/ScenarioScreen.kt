@@ -181,6 +181,39 @@ fun ScenarioScreen(
 
             val scenario = uiState.currentScenario
             if (scenario != null) {
+                // Scenario ID bar — top of scenario, so users can report
+                // bugs by id (e.g. "river_18 broken").
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(pokerColors.surface)
+                            .padding(horizontal = 10.dp, vertical = 4.dp)
+                    ) {
+                        Text(
+                            text = "ID  ${scenario.id}",
+                            color = pokerColors.textSecondary,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Medium,
+                            letterSpacing = 0.5.sp
+                        )
+                    }
+                    Text(
+                        text = "${uiState.currentIndex + 1}/${uiState.totalScenarios}",
+                        color = pokerColors.textMuted,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(4.dp))
+
                 // Position display - prominent
                 Row(
                     modifier = Modifier
@@ -237,7 +270,7 @@ fun ScenarioScreen(
                         )
                     }
 
-                    // Pot + Stack + Progress
+                    // Pot + Stack
                     Column(horizontalAlignment = Alignment.End) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(text = "Pot ", color = pokerColors.textMuted, fontSize = 11.sp)
@@ -257,11 +290,6 @@ fun ScenarioScreen(
                                 fontWeight = FontWeight.SemiBold
                             )
                         }
-                        Text(
-                            text = "${uiState.currentIndex + 1}/${uiState.totalScenarios}",
-                            color = pokerColors.textMuted,
-                            fontSize = 11.sp
-                        )
                     }
                 }
 
@@ -311,39 +339,20 @@ fun ScenarioScreen(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
-                        // Street label + scenario ID (so users can report bugs by ID)
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        // Street label
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(Color.Black.copy(alpha = 0.3f))
+                                .padding(horizontal = 12.dp, vertical = 4.dp)
                         ) {
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(8.dp))
-                                    .background(Color.Black.copy(alpha = 0.3f))
-                                    .padding(horizontal = 12.dp, vertical = 4.dp)
-                            ) {
-                                Text(
-                                    text = scenario.street.name,
-                                    color = GoldAccent,
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    letterSpacing = 1.5.sp
-                                )
-                            }
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(8.dp))
-                                    .background(Color.Black.copy(alpha = 0.3f))
-                                    .padding(horizontal = 10.dp, vertical = 4.dp)
-                            ) {
-                                Text(
-                                    text = "ID  ${scenario.id}",
-                                    color = pokerColors.textSecondary,
-                                    fontSize = 11.sp,
-                                    fontWeight = FontWeight.Medium,
-                                    letterSpacing = 0.5.sp
-                                )
-                            }
+                            Text(
+                                text = scenario.street.name,
+                                color = GoldAccent,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                letterSpacing = 1.5.sp
+                            )
                         }
 
                         // Community cards (board)
