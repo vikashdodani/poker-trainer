@@ -19,7 +19,8 @@ data class Scenario(
     val options: List<String>,
     val correct: String,
     val explanation: String,
-    val category: String
+    val category: String,
+    val villainRange: String? = null
 )
 
 enum class Street {

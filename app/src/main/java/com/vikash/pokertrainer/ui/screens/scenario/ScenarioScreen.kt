@@ -536,6 +536,46 @@ fun ScenarioScreen(
                             // when reporting a bug)
                             androidx.compose.foundation.text.selection.SelectionContainer {
                                 Column(modifier = Modifier.fillMaxWidth()) {
+                                    // Potential opponent range — what you
+                                    // should have been putting villain on.
+                                    val range = scenario.villainRange
+                                    if (!range.isNullOrBlank()) {
+                                        Column(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .clip(RoundedCornerShape(10.dp))
+                                                .background(
+                                                    GoldAccent.copy(alpha = 0.12f)
+                                                )
+                                                .border(
+                                                    width = 1.dp,
+                                                    color = GoldAccent.copy(alpha = 0.35f),
+                                                    shape = RoundedCornerShape(10.dp)
+                                                )
+                                                .padding(
+                                                    horizontal = 12.dp,
+                                                    vertical = 10.dp
+                                                )
+                                        ) {
+                                            Text(
+                                                text = "Potential Range",
+                                                color = GoldAccent,
+                                                fontSize = 12.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                letterSpacing = 0.8.sp
+                                            )
+                                            Spacer(modifier = Modifier.height(4.dp))
+                                            Text(
+                                                text = range,
+                                                color = pokerColors.textPrimary,
+                                                fontSize = 13.sp,
+                                                lineHeight = 19.sp,
+                                                textAlign = TextAlign.Start
+                                            )
+                                        }
+                                        Spacer(modifier = Modifier.height(12.dp))
+                                    }
+
                                     Text(
                                         text = scenario.explanation,
                                         color = pokerColors.textSecondary,
