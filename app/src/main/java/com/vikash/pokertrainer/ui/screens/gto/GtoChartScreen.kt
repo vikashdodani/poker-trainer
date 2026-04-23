@@ -3,17 +3,18 @@ package com.vikash.pokertrainer.ui.screens.gto
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -30,13 +31,11 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -60,77 +59,98 @@ import com.vikash.pokertrainer.ui.theme.RaiseColor
 import com.vikash.pokertrainer.ui.theme.pokerColors
 import com.vikash.pokertrainer.viewmodel.GtoHandInfo
 import com.vikash.pokertrainer.viewmodel.GtoViewModel
+import com.vikash.pokertrainer.viewmodel.RangeStats
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GtoChartScreen(
     viewModel: GtoViewModel,
     onBack: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    val sheetState = rememberModalBottomSheetState()
+    val scrollState = rememberScrollState()
+    val rangeStats = remember(uiState.selectedPosition, uiState.gameType) {
+        viewModel.getRangeStats(uiState.selectedPosition, uiState.gameType)
+    }
 
-    Box(
+    LaunchedEffect(uiState.showHandDetail) {
+        if (uiState.showHandDetail) {
+            scrollState.animateScrollTo(scrollState.maxValue)
+        }
+    }
+
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(pokerColors.background)
+            .verticalScroll(scrollState)
+            .padding(horizontal = 12.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 12.dp)
-        ) {
-            Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-            // Top bar
-            TopBar(onBack = onBack)
+        TopBar(onBack = onBack)
 
-            Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-            // Position selector
-            PositionSelector(
-                positions = viewModel.positions,
-                selectedPosition = uiState.selectedPosition,
-                onPositionSelected = { viewModel.selectPosition(it) }
+        PositionSelector(
+            positions = viewModel.positions,
+            selectedPosition = uiState.selectedPosition,
+            onPositionSelected = { viewModel.selectPosition(it) }
+        )
+
+        viewModel.positionDescriptions[uiState.selectedPosition]?.let { desc ->
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = desc,
+                fontSize = 12.sp,
+                color = pokerColors.textMuted,
+                modifier = Modifier.padding(horizontal = 4.dp)
             )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Game type toggle
-            GameTypeToggle(
-                selectedType = uiState.gameType,
-                onTypeSelected = { viewModel.setGameType(it) }
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Hand grid
-            HandGrid(
-                viewModel = viewModel,
-                position = uiState.selectedPosition,
-                onHandSelected = { viewModel.selectHand(it) }
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Legend
-            Legend()
-
-            Spacer(modifier = Modifier.height(16.dp))
         }
 
-        // Bottom sheet for hand detail
-        if (uiState.showHandDetail && uiState.selectedHand != null) {
-            ModalBottomSheet(
-                onDismissRequest = { viewModel.dismissHandDetail() },
-                sheetState = sheetState,
-                containerColor = pokerColors.surface,
-                contentColor = pokerColors.textPrimary
-            ) {
-                HandDetailContent(handInfo = uiState.selectedHand!!)
+        Spacer(modifier = Modifier.height(12.dp))
+
+        GameTypeToggle(
+            selectedType = uiState.gameType,
+            onTypeSelected = { viewModel.setGameType(it) }
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        GridOrientationHint()
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        HandGrid(
+            viewModel = viewModel,
+            position = uiState.selectedPosition,
+            gameType = uiState.gameType,
+            selectedHand = uiState.selectedHand?.hand,
+            onHandSelected = { viewModel.selectHand(it) }
+        )
+
+        AnimatedVisibility(
+            visible = uiState.showHandDetail && uiState.selectedHand != null,
+            enter = fadeIn(tween(200)) + slideInVertically(tween(250)) { it / 2 },
+            exit = fadeOut(tween(150)) + slideOutVertically(tween(150)) { it / 2 }
+        ) {
+            uiState.selectedHand?.let { hand ->
+                Column {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    HandDetailCard(
+                        handInfo = hand,
+                        positionHands = uiState.positionHandsForSelected,
+                        positions = viewModel.positions,
+                        onDismiss = { viewModel.dismissHandDetail() }
+                    )
+                }
             }
         }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        RangeStatsCard(stats = rangeStats)
+
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
@@ -154,15 +174,20 @@ private fun TopBar(onBack: () -> Unit) {
                 modifier = Modifier.size(22.dp)
             )
         }
-
         Spacer(modifier = Modifier.width(12.dp))
-
-        Text(
-            text = "GTO Preflop Charts",
-            fontSize = 22.sp,
-            fontWeight = FontWeight.Bold,
-            color = pokerColors.textPrimary
-        )
+        Column {
+            Text(
+                text = "GTO Preflop Charts",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                color = pokerColors.textPrimary
+            )
+            Text(
+                text = "Opening ranges by position",
+                fontSize = 12.sp,
+                color = pokerColors.textMuted
+            )
+        }
     }
 }
 
@@ -172,31 +197,32 @@ private fun PositionSelector(
     selectedPosition: String,
     onPositionSelected: (String) -> Unit
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        positions.forEach { position ->
-            val isSelected = position == selectedPosition
-            val bgColor = if (isSelected) GoldAccent else pokerColors.surface
-            val textColor = if (isSelected) pokerColors.background else pokerColors.textSecondary
-
-            Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(bgColor)
-                    .clickable { onPositionSelected(position) }
-                    .padding(horizontal = 20.dp, vertical = 10.dp),
-                contentAlignment = Alignment.Center
+    val rows = positions.chunked(3)
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        rows.forEach { rowPositions ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(
-                    text = position,
-                    fontSize = 14.sp,
-                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                    color = textColor
-                )
+                rowPositions.forEach { position ->
+                    val isSelected = position == selectedPosition
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(if (isSelected) GoldAccent else pokerColors.surface)
+                            .clickable { onPositionSelected(position) }
+                            .padding(vertical = 10.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = position,
+                            fontSize = 14.sp,
+                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                            color = if (isSelected) pokerColors.background else pokerColors.textSecondary
+                        )
+                    }
+                }
             }
         }
     }
@@ -208,23 +234,18 @@ private fun GameTypeToggle(
     onTypeSelected: (String) -> Unit
 ) {
     val types = listOf("Cash", "Tournament")
-
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(12.dp))
             .background(pokerColors.surface)
-            .padding(4.dp),
-        horizontalArrangement = Arrangement.spacedBy(0.dp)
+            .padding(4.dp)
     ) {
         types.forEach { type ->
             val isSelected = type == selectedType
-            val bgColor = if (isSelected) pokerColors.surfaceHigh else Color.Transparent
-            val textColor = if (isSelected) pokerColors.textPrimary else pokerColors.textMuted
-
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(8.dp))
-                    .background(bgColor)
+                    .background(if (isSelected) pokerColors.surfaceHigh else Color.Transparent)
                     .clickable { onTypeSelected(type) }
                     .padding(horizontal = 20.dp, vertical = 8.dp),
                 contentAlignment = Alignment.Center
@@ -233,7 +254,7 @@ private fun GameTypeToggle(
                     text = type,
                     fontSize = 13.sp,
                     fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
-                    color = textColor
+                    color = if (isSelected) pokerColors.textPrimary else pokerColors.textMuted
                 )
             }
         }
@@ -241,18 +262,35 @@ private fun GameTypeToggle(
 }
 
 @Composable
+private fun GridOrientationHint() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(8.dp))
+            .background(pokerColors.surface.copy(alpha = 0.6f))
+            .padding(horizontal = 12.dp, vertical = 7.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(text = "↗ Suited", fontSize = 11.sp, color = pokerColors.textMuted, fontWeight = FontWeight.Medium)
+        Text(text = "◆ Pairs (diagonal)", fontSize = 11.sp, color = GoldAccent.copy(alpha = 0.8f), fontWeight = FontWeight.Medium)
+        Text(text = "Offsuit ↙", fontSize = 11.sp, color = pokerColors.textMuted, fontWeight = FontWeight.Medium)
+    }
+}
+
+@Composable
 private fun HandGrid(
     viewModel: GtoViewModel,
     position: String,
+    gameType: String,
+    selectedHand: String?,
     onHandSelected: (GtoHandInfo) -> Unit
 ) {
     val ranks = viewModel.ranks
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
-    val gridPadding = 24.dp // 12dp on each side
-    val availableWidth = screenWidth - gridPadding
+    // 24dp outer padding + 16dp card inner padding (8dp each side) + 20dp row header
     val headerWidth = 20.dp
-    val cellSize = (availableWidth - headerWidth) / 13
-    val gridBorderColor = pokerColors.background
+    val cellSize = (screenWidth - 24.dp - 16.dp - headerWidth) / 13
 
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -261,14 +299,8 @@ private fun HandGrid(
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
-            // Column headers
             Row {
-                // Empty corner cell
-                Box(
-                    modifier = Modifier.size(width = headerWidth, height = 20.dp),
-                    contentAlignment = Alignment.Center
-                ) {}
-
+                Box(modifier = Modifier.size(width = headerWidth, height = 20.dp))
                 ranks.forEach { rank ->
                     Box(
                         modifier = Modifier.size(width = cellSize, height = 20.dp),
@@ -285,10 +317,8 @@ private fun HandGrid(
                 }
             }
 
-            // Grid rows
             ranks.forEachIndexed { rowIndex, rowRank ->
                 Row {
-                    // Row header
                     Box(
                         modifier = Modifier.size(width = headerWidth, height = cellSize),
                         contentAlignment = Alignment.Center
@@ -302,16 +332,15 @@ private fun HandGrid(
                         )
                     }
 
-                    // Hand cells
                     ranks.forEachIndexed { colIndex, _ ->
-                        val handInfo = remember(rowIndex, colIndex, position) {
-                            viewModel.getHandAction(rowIndex, colIndex, position)
+                        val handInfo = remember(rowIndex, colIndex, position, gameType) {
+                            viewModel.getHandAction(rowIndex, colIndex, position, gameType)
                         }
-
                         HandCell(
                             handInfo = handInfo,
                             size = cellSize,
                             isDiagonal = rowIndex == colIndex,
+                            isSelected = handInfo.hand == selectedHand,
                             onClick = { onHandSelected(handInfo) }
                         )
                     }
@@ -326,32 +355,33 @@ private fun HandCell(
     handInfo: GtoHandInfo,
     size: Dp,
     isDiagonal: Boolean,
+    isSelected: Boolean,
     onClick: () -> Unit
 ) {
     val backgroundColor = when (handInfo.color) {
-        0 -> FoldColor.copy(alpha = 0.4f)
-        1 -> CallColor.copy(alpha = 0.7f)
-        2 -> RaiseColor.copy(alpha = 0.75f)
-        3 -> MixedColor.copy(alpha = 0.7f)
-        else -> FoldColor.copy(alpha = 0.4f)
+        0 -> FoldColor.copy(alpha = 0.25f)
+        1 -> CallColor.copy(alpha = 0.85f)
+        2 -> RaiseColor.copy(alpha = 0.9f)
+        3 -> MixedColor.copy(alpha = 0.85f)
+        else -> FoldColor.copy(alpha = 0.25f)
     }
-
-    val borderColor = if (isDiagonal) {
-        GoldAccent.copy(alpha = 0.5f)
-    } else {
-        pokerColors.background.copy(alpha = 0.6f)
+    val textColor = if (handInfo.color == 0) pokerColors.textMuted else Color.White
+    val borderColor = when {
+        isSelected -> Color.White
+        isDiagonal -> GoldAccent.copy(alpha = 0.55f)
+        else -> null
     }
+    val borderWidth = if (isSelected) 1.5.dp else 1.dp
 
     Box(
         modifier = Modifier
             .size(size)
             .padding(0.5.dp)
             .clip(RoundedCornerShape(2.dp))
-            .background(backgroundColor)
-            .border(
-                width = if (isDiagonal) 1.dp else 0.5.dp,
-                color = borderColor,
-                shape = RoundedCornerShape(2.dp)
+            .background(if (isSelected) backgroundColor.copy(alpha = minOf(1f, backgroundColor.alpha + 0.2f)) else backgroundColor)
+            .then(
+                if (borderColor != null) Modifier.border(borderWidth, borderColor, RoundedCornerShape(2.dp))
+                else Modifier
             )
             .clickable(onClick = onClick),
         contentAlignment = Alignment.Center
@@ -359,8 +389,8 @@ private fun HandCell(
         Text(
             text = handInfo.hand,
             fontSize = if (handInfo.hand.length > 2) 7.sp else 8.sp,
-            fontWeight = FontWeight.Medium,
-            color = Color.White,
+            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+            color = textColor,
             textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Clip
@@ -369,48 +399,89 @@ private fun HandCell(
 }
 
 @Composable
-private fun Legend() {
+private fun RangeStatsCard(stats: RangeStats) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = pokerColors.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            LegendItem(color = RaiseColor.copy(alpha = 0.75f), label = "Raise")
-            LegendItem(color = CallColor.copy(alpha = 0.7f), label = "Call")
-            LegendItem(color = FoldColor.copy(alpha = 0.4f), label = "Fold")
-            LegendItem(color = MixedColor.copy(alpha = 0.7f), label = "Mixed")
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "Range Breakdown",
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = pokerColors.textMuted,
+                modifier = Modifier.padding(bottom = 12.dp)
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                listOf(
+                    Triple("Raise", stats.raisePercent, RaiseColor),
+                    Triple("Call", stats.callPercent, CallColor),
+                    Triple("Mixed", stats.mixedPercent, MixedColor),
+                    Triple("Fold", stats.foldPercent, FoldColor)
+                ).forEach { (label, pct, color) ->
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "$pct%",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = color
+                        )
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(4.dp)
+                                .clip(RoundedCornerShape(2.dp))
+                                .background(pokerColors.surfaceHigh)
+                        ) {
+                            if (pct > 0) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth(pct / 100f)
+                                        .fillMaxHeight()
+                                        .background(color.copy(alpha = 0.85f))
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            text = label,
+                            fontSize = 11.sp,
+                            color = pokerColors.textMuted,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = "${stats.playedCount} of ${stats.total} hands played (${(stats.playedCount * 100) / stats.total}%)",
+                fontSize = 11.sp,
+                color = pokerColors.textMuted,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center
+            )
         }
     }
 }
 
 @Composable
-private fun LegendItem(color: Color, label: String) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Box(
-            modifier = Modifier
-                .size(14.dp)
-                .clip(RoundedCornerShape(3.dp))
-                .background(color)
-        )
-        Spacer(modifier = Modifier.width(6.dp))
-        Text(
-            text = label,
-            fontSize = 12.sp,
-            color = pokerColors.textSecondary,
-            fontWeight = FontWeight.Medium
-        )
-    }
-}
-
-@Composable
-private fun HandDetailContent(handInfo: GtoHandInfo) {
+private fun HandDetailCard(
+    handInfo: GtoHandInfo,
+    positionHands: Map<String, GtoHandInfo>,
+    positions: List<String>,
+    onDismiss: () -> Unit
+) {
     val actionColor = when (handInfo.color) {
         0 -> FoldColor
         1 -> CallColor
@@ -419,91 +490,238 @@ private fun HandDetailContent(handInfo: GtoHandInfo) {
         else -> FoldColor
     }
 
-    Column(
+    Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 24.dp)
-            .padding(bottom = 32.dp)
+            .border(1.dp, actionColor.copy(alpha = 0.4f), RoundedCornerShape(12.dp)),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = pokerColors.surface),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
-        // Hand name large
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+
+            // Header: hand name + action badge + close
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = handInfo.hand,
+                        fontSize = 28.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = pokerColors.textPrimary
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(actionColor.copy(alpha = 0.2f))
+                            .border(1.dp, actionColor.copy(alpha = 0.5f), RoundedCornerShape(8.dp))
+                            .padding(horizontal = 12.dp, vertical = 5.dp)
+                    ) {
+                        Text(
+                            text = handInfo.action,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = actionColor
+                        )
+                    }
+                }
+
+                IconButton(
+                    onClick = onDismiss,
+                    modifier = Modifier
+                        .size(32.dp)
+                        .clip(CircleShape)
+                        .background(pokerColors.surfaceHigh)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Close",
+                        tint = pokerColors.textMuted,
+                        modifier = Modifier.size(16.dp)
+                    )
+                }
+            }
+
+            val handType = when {
+                handInfo.hand.length == 2 -> "Pocket Pair"
+                handInfo.hand.endsWith("s") -> "Suited"
+                handInfo.hand.endsWith("o") -> "Offsuit"
+                else -> ""
+            }
             Text(
-                text = handInfo.hand,
-                fontSize = 36.sp,
-                fontWeight = FontWeight.Bold,
-                color = pokerColors.textPrimary
+                text = handType,
+                fontSize = 12.sp,
+                color = pokerColors.textMuted,
+                modifier = Modifier.padding(top = 2.dp)
             )
 
-            // Action badge
-            Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(actionColor.copy(alpha = 0.2f))
-                    .border(
-                        width = 1.dp,
-                        color = actionColor.copy(alpha = 0.5f),
-                        shape = RoundedCornerShape(12.dp)
-                    )
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-            ) {
+            // Position frequency breakdown
+            if (positionHands.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = handInfo.action,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = actionColor
+                    text = "Frequency by position",
+                    fontSize = 11.sp,
+                    color = pokerColors.textMuted,
+                    fontWeight = FontWeight.SemiBold,
+                    modifier = Modifier.padding(bottom = 10.dp)
                 )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    positions.forEach { pos ->
+                        val h = positionHands[pos]
+                        val color = when (h?.color) {
+                            0 -> FoldColor
+                            1 -> CallColor
+                            2 -> RaiseColor
+                            3 -> MixedColor
+                            else -> FoldColor
+                        }
+                        val actionLabel = when (h?.color) {
+                            1 -> "C"
+                            2 -> "R"
+                            3 -> "M"
+                            else -> "F"
+                        }
+                        // Primary action frequency for this position
+                        val primaryFreq = when (h?.color) {
+                            2 -> h.raiseFreq
+                            1 -> h.callFreq
+                            3 -> maxOf(h.raiseFreq, h.callFreq)
+                            else -> 100
+                        }
+
+                        Column(
+                            modifier = Modifier.weight(1f),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(34.dp)
+                                    .clip(RoundedCornerShape(6.dp))
+                                    .background(color.copy(alpha = 0.2f))
+                                    .border(1.dp, color.copy(alpha = 0.5f), RoundedCornerShape(6.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = actionLabel,
+                                    fontSize = 13.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = color
+                                )
+                            }
+                            Spacer(modifier = Modifier.height(3.dp))
+                            Text(
+                                text = "$primaryFreq%",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = color,
+                                textAlign = TextAlign.Center
+                            )
+                            Text(
+                                text = pos,
+                                fontSize = 10.sp,
+                                color = pokerColors.textMuted,
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
+                }
+
+                // Mixed hand breakdown for the selected position
+                if (handInfo.color == 3 || handInfo.raiseFreq in 1..99 || handInfo.callFreq in 1..99) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    FrequencyBreakdownRow(handInfo = handInfo)
+                }
             }
-        }
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        // Hand type label
-        val handType = when {
-            handInfo.hand.length == 2 -> "Pocket Pair"
-            handInfo.hand.endsWith("s") -> "Suited"
-            handInfo.hand.endsWith("o") -> "Offsuit"
-            else -> ""
-        }
-        Text(
-            text = handType,
-            fontSize = 14.sp,
-            color = pokerColors.textMuted,
-            fontWeight = FontWeight.Medium
-        )
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // Explanation card
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = pokerColors.surfaceHigh)
-        ) {
+            // Explanation
+            Spacer(modifier = Modifier.height(14.dp))
             Row(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(pokerColors.surfaceHigh)
+                    .padding(12.dp),
                 verticalAlignment = Alignment.Top
             ) {
                 Icon(
                     imageVector = Icons.Default.Info,
                     contentDescription = null,
                     tint = GoldAccent,
-                    modifier = Modifier.size(20.dp)
+                    modifier = Modifier.size(16.dp)
                 )
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(10.dp))
                 Text(
                     text = handInfo.explanation,
-                    fontSize = 14.sp,
+                    fontSize = 13.sp,
                     color = pokerColors.textSecondary,
-                    lineHeight = 20.sp
+                    lineHeight = 19.sp
                 )
             }
         }
+    }
+}
 
-        Spacer(modifier = Modifier.height(16.dp))
+@Composable
+private fun FrequencyBreakdownRow(handInfo: GtoHandInfo) {
+    val segments = buildList {
+        if (handInfo.raiseFreq > 0) add(Triple("Raise", handInfo.raiseFreq, RaiseColor))
+        if (handInfo.callFreq > 0) add(Triple("Call", handInfo.callFreq, CallColor))
+        if (handInfo.foldFreq > 0) add(Triple("Fold", handInfo.foldFreq, FoldColor))
+    }
+    if (segments.isEmpty()) return
+
+    Column {
+        Text(
+            text = "This position breakdown",
+            fontSize = 11.sp,
+            color = pokerColors.textMuted,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(bottom = 6.dp)
+        )
+        // Stacked bar
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(16.dp)
+                .clip(RoundedCornerShape(4.dp))
+        ) {
+            segments.forEach { (_, pct, color) ->
+                Box(
+                    modifier = Modifier
+                        .weight(pct.toFloat())
+                        .fillMaxHeight()
+                        .background(color.copy(alpha = 0.85f))
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(5.dp))
+        // Labels
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            segments.forEach { (label, pct, color) ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(8.dp)
+                            .clip(RoundedCornerShape(2.dp))
+                            .background(color.copy(alpha = 0.85f))
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "$label $pct%",
+                        fontSize = 11.sp,
+                        color = color,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
+        }
     }
 }
 
